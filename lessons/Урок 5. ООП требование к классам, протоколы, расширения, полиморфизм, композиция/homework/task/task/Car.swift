@@ -7,7 +7,13 @@
 
 import Foundation
 
-// не очень понял почему не работает без AnyObject, точнее я понимаю что дело как то связанно с тем, что классы передаются по ссылке. Нагуглил такое решение проблемы. Хотелось бы понять этот момент. Если я не ставил AnyObject, тогда все методы нужно было помечать как mutating, и тогда при релаизации классов SportCar и TrunkCar в месте вызова doDefaultAction происходила ошибка компилятора cannot use mutating member on immutable value:'self' is immutable
+// не очень понял почему не работает без AnyObject,
+// точнее я понимаю что дело как то связанно с тем, что классы
+// передаются по ссылке. Нагуглил такое решение проблемы.
+// Хотелось бы понять этот момент. Если я не ставил AnyObject,
+// тогда все методы нужно было помечать как mutating, и тогда при релаизации классов
+// SportCar и TrunkCar в месте вызова doDefaultAction происходила ошибка
+// компилятора cannot use mutating member on immutable value:'self' is immutable
 protocol Car: AnyObject {
     var brand: String { get }
     var creationYear: Int { get }
