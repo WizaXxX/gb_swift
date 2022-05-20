@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="vk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите логин" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eke-Ex-yyk">
+                                <rect key="frame" x="107" y="308" width="200" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Rda-l1-iVu"/>
+                                    <constraint firstAttribute="height" constant="40" id="hEv-T5-4lE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Логин" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SWS-OU-TC1">
+                                <rect key="frame" x="107" y="285" width="43.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пароль" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftW-4W-8NN">
+                                <rect key="frame" x="107" y="363" width="53" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OnD-FM-UuD">
+                                <rect key="frame" x="107" y="386" width="200" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5yv-iA-aYG">
+                                <rect key="frame" x="107" y="441" width="200" height="40"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Войти"/>
+                                <connections>
+                                    <action selector="Enter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uhF-1V-F7C"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="eke-Ex-yyk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8Nk-ql-HQi"/>
+                            <constraint firstItem="ftW-4W-8NN" firstAttribute="top" secondItem="eke-Ex-yyk" secondAttribute="bottom" constant="15" id="DEU-ar-FP3"/>
+                            <constraint firstItem="OnD-FM-UuD" firstAttribute="height" secondItem="eke-Ex-yyk" secondAttribute="height" id="DZ5-kM-wVG"/>
+                            <constraint firstItem="OnD-FM-UuD" firstAttribute="width" secondItem="eke-Ex-yyk" secondAttribute="width" id="FqA-N2-Q2z"/>
+                            <constraint firstItem="eke-Ex-yyk" firstAttribute="top" secondItem="SWS-OU-TC1" secondAttribute="bottom" constant="5" id="IvH-jR-wvt"/>
+                            <constraint firstItem="eke-Ex-yyk" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-120" id="PRT-IT-Q4p"/>
+                            <constraint firstItem="5yv-iA-aYG" firstAttribute="top" secondItem="OnD-FM-UuD" secondAttribute="bottom" constant="15" id="SqJ-9W-Ic4"/>
+                            <constraint firstItem="ftW-4W-8NN" firstAttribute="leading" secondItem="eke-Ex-yyk" secondAttribute="leading" id="b9H-jz-gAZ"/>
+                            <constraint firstItem="5yv-iA-aYG" firstAttribute="width" secondItem="OnD-FM-UuD" secondAttribute="width" id="gAF-8V-94J"/>
+                            <constraint firstItem="OnD-FM-UuD" firstAttribute="top" secondItem="ftW-4W-8NN" secondAttribute="bottom" constant="5" id="hVz-CX-lE1"/>
+                            <constraint firstItem="5yv-iA-aYG" firstAttribute="height" secondItem="OnD-FM-UuD" secondAttribute="height" id="o0f-zf-jaL"/>
+                            <constraint firstItem="OnD-FM-UuD" firstAttribute="leading" secondItem="ftW-4W-8NN" secondAttribute="leading" id="wKA-bd-Xie"/>
+                            <constraint firstItem="SWS-OU-TC1" firstAttribute="leading" secondItem="eke-Ex-yyk" secondAttribute="leading" id="wch-jT-ni0"/>
+                            <constraint firstItem="5yv-iA-aYG" firstAttribute="leading" secondItem="OnD-FM-UuD" secondAttribute="leading" id="y88-41-2Td"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="loginField" destination="eke-Ex-yyk" id="jH2-x6-JM0"/>
+                        <outlet property="passwordField" destination="OnD-FM-UuD" id="q00-7Y-u9y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="34.782608695652179" y="97.767857142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
