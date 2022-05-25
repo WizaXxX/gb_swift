@@ -17,33 +17,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите логин" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eke-Ex-yyk">
-                                <rect key="frame" x="107" y="308" width="200" height="40"/>
+                                <rect key="frame" x="103.5" y="308" width="207" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="Rda-l1-iVu"/>
                                     <constraint firstAttribute="height" constant="40" id="hEv-T5-4lE"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Логин" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SWS-OU-TC1">
-                                <rect key="frame" x="107" y="285" width="43.5" height="18"/>
+                                <rect key="frame" x="103.5" y="285" width="43.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пароль" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftW-4W-8NN">
-                                <rect key="frame" x="107" y="363" width="53" height="18"/>
+                                <rect key="frame" x="103.5" y="363" width="53" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OnD-FM-UuD">
-                                <rect key="frame" x="107" y="386" width="200" height="40"/>
+                                <rect key="frame" x="103.5" y="386" width="207" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5yv-iA-aYG">
-                                <rect key="frame" x="107" y="441" width="200" height="40"/>
+                                <rect key="frame" x="103.5" y="441" width="207" height="40"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Войти"/>
                                 <connections>
@@ -57,6 +56,7 @@
                             <constraint firstItem="eke-Ex-yyk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8Nk-ql-HQi"/>
                             <constraint firstItem="ftW-4W-8NN" firstAttribute="top" secondItem="eke-Ex-yyk" secondAttribute="bottom" constant="15" id="DEU-ar-FP3"/>
                             <constraint firstItem="OnD-FM-UuD" firstAttribute="height" secondItem="eke-Ex-yyk" secondAttribute="height" id="DZ5-kM-wVG"/>
+                            <constraint firstItem="eke-Ex-yyk" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="F0N-mV-zyA"/>
                             <constraint firstItem="OnD-FM-UuD" firstAttribute="width" secondItem="eke-Ex-yyk" secondAttribute="width" id="FqA-N2-Q2z"/>
                             <constraint firstItem="eke-Ex-yyk" firstAttribute="top" secondItem="SWS-OU-TC1" secondAttribute="bottom" constant="5" id="IvH-jR-wvt"/>
                             <constraint firstItem="eke-Ex-yyk" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-120" id="PRT-IT-Q4p"/>
