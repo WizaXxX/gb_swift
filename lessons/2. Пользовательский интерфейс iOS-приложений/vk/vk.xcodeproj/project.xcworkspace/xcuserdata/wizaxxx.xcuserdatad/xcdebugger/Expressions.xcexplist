@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "LoginViewController.keyboardWillShow(notification:):LoginViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "(info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue).cgRectValue">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "LoginViewController.Enter(_:):LoginViewController.swift">
          <PersistentStrings>
             <PersistentString
