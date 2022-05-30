@@ -22,6 +22,8 @@ class LoginViewController: UIViewController {
     }
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    let fromLoginToMainBarController = "fromLoginToMainBarController"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -105,9 +107,11 @@ class LoginViewController: UIViewController {
         if login == "admin" && password == "123" {
             
             showSpinner()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.performSegue(withIdentifier: self.fromLoginToMainBarController, sender: nil)
                 self.hideSpinner()
             }
+            
         } else {
             showAlert(
                 title: "Вход в приложение",
