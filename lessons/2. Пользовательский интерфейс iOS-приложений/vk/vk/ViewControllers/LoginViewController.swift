@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Security
 
 class LoginViewController: UIViewController {
 
@@ -23,7 +24,7 @@ class LoginViewController: UIViewController {
         scrollView?.addGestureRecognizer(hideKeyboardGesture)
         
     }
-    
+        
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -57,27 +58,24 @@ class LoginViewController: UIViewController {
 
     @IBAction func Enter(_ sender: Any) {
         
-        guard loginField.text != nil else {
-            showAlert(title: "Ошибка входа", message: "Укажите логин", actions: [getRetryAction()])
+        guard let login = loginField.text else {
+            showError("Укажите логин")
+            return
+        }
+        if login.isEmpty {
+            showError("Укажите логин")
             return
         }
         
-        guard passwordField.text != nil else {
-            showAlert(title: "Ошибка входа", message: "Укажите пароль", actions: [getRetryAction()])
+        guard let password = passwordField.text else {
+            showError("Укажите пароль")
             return
         }
-        
-        let login = loginField.text!
-        let password = passwordField.text!
-        
-        if login.isEmpty || password.isEmpty {
-            showAlert(
-                title: "Ошибка входа",
-                message: "Для входа необходимо заполнить логин и пароль!",
-                actions: [getRetryAction()])
+        if password.isEmpty {
+            showError("Укажите пароль")
             return
         }
-        
+                
         if login == "admin" && password == "123" {
             showAlert(
                 title: "Вход в приложение",
@@ -94,6 +92,10 @@ class LoginViewController: UIViewController {
                         style: UIAlertAction.Style.cancel,
                         handler: { _ in exit(0)})])
         }
+    }
+    
+    func showError(_ message: String) {
+        showAlert(title: "Ошибка входа", message: message, actions: [getRetryAction()])
     }
     
     func getRetryAction() -> UIAlertAction {
@@ -138,4 +140,3 @@ class LoginViewController: UIViewController {
         scrollView?.endEditing(true)
     }
 }
-
