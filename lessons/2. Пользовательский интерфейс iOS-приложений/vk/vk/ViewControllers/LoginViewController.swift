@@ -15,6 +15,13 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var enterButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     
+    @IBOutlet weak var loadingView: UIView! {
+        didSet {
+            loadingView.layer.cornerRadius = 6
+        }
+    }
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,6 +30,7 @@ class LoginViewController: UIViewController {
             action: #selector(hideKeyboard))
         scrollView?.addGestureRecognizer(hideKeyboardGesture)
         
+        hideSpinner()
     }
         
     override func viewWillAppear(_ animated: Bool) {
@@ -55,7 +63,25 @@ class LoginViewController: UIViewController {
             name: UIResponder.keyboardWillHideNotification,
             object: nil)
     }
-
+    
+    private func showSpinner() {
+        activityIndicator.startAnimating()
+        loadingView.isHidden = false
+        
+        loginField.isEnabled = false
+        passwordField.isEnabled = false
+        enterButton.isEnabled = false
+    }
+    
+    private func hideSpinner() {
+        activityIndicator.stopAnimating()
+        loadingView.isHidden = true
+        
+        loginField.isEnabled = true
+        passwordField.isEnabled = true
+        enterButton.isEnabled = true
+    }
+    
     @IBAction func Enter(_ sender: Any) {
         
         guard let login = loginField.text else {
@@ -77,10 +103,11 @@ class LoginViewController: UIViewController {
         }
                 
         if login == "admin" && password == "123" {
-            showAlert(
-                title: "Вход в приложение",
-                message: "Вы вошли в систему",
-                actions: [UIAlertAction(title: "Продолжить вход", style: UIAlertAction.Style.default, handler: { _ in print("Вход выполнен") })])
+            
+            showSpinner()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.hideSpinner()
+            }
         } else {
             showAlert(
                 title: "Вход в приложение",
@@ -103,6 +130,7 @@ class LoginViewController: UIViewController {
     }
     
     func showAlert(title: String, message: String, actions: [UIAlertAction]) {
+        hideSpinner()
         let alert = UIAlertController(
             title: title,
             message: message,
