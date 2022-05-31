@@ -14,6 +14,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var enterButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var showHidePasswordButton: UIButton!
     
     @IBOutlet weak var loadingView: UIView! {
         didSet {
@@ -64,6 +65,18 @@ class LoginViewController: UIViewController {
             self,
             name: UIResponder.keyboardWillHideNotification,
             object: nil)
+    }
+    
+    @IBAction func pressShowHidePassword(_ sender: Any) {
+            
+        passwordField.isSecureTextEntry = !passwordField.isSecureTextEntry
+        
+        if passwordField.isSecureTextEntry {
+            showHidePasswordButton.setImage(UIImage(systemName: "eye.slash.circle"), for: .normal)
+        } else {
+            showHidePasswordButton.setImage(UIImage(systemName: "eye.circle"), for: .normal)
+        }
+        
     }
     
     private func showSpinner() {
