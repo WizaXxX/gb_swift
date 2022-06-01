@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Security
 
 class LoginViewController: UIViewController {
 
@@ -13,6 +14,16 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var enterButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var showHidePasswordButton: UIButton!
+    
+    @IBOutlet weak var loadingView: UIView! {
+        didSet {
+            loadingView.layer.cornerRadius = 6
+        }
+    }
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    let fromLoginToMainBarController = "fromLoginToMainBarController"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +33,9 @@ class LoginViewController: UIViewController {
             action: #selector(hideKeyboard))
         scrollView?.addGestureRecognizer(hideKeyboardGesture)
         
+        hideSpinner()
     }
-    
+        
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -54,35 +66,65 @@ class LoginViewController: UIViewController {
             name: UIResponder.keyboardWillHideNotification,
             object: nil)
     }
-
+    
+    @IBAction func pressShowHidePassword(_ sender: Any) {
+            
+        passwordField.isSecureTextEntry = !passwordField.isSecureTextEntry
+        
+        if passwordField.isSecureTextEntry {
+            showHidePasswordButton.setImage(UIImage(systemName: "eye.slash.circle"), for: .normal)
+        } else {
+            showHidePasswordButton.setImage(UIImage(systemName: "eye.circle"), for: .normal)
+        }
+        
+    }
+    
+    private func showSpinner() {
+        activityIndicator.startAnimating()
+        loadingView.isHidden = false
+        
+        loginField.isEnabled = false
+        passwordField.isEnabled = false
+        enterButton.isEnabled = false
+    }
+    
+    private func hideSpinner() {
+        activityIndicator.stopAnimating()
+        loadingView.isHidden = true
+        
+        loginField.isEnabled = true
+        passwordField.isEnabled = true
+        enterButton.isEnabled = true
+    }
+    
     @IBAction func Enter(_ sender: Any) {
         
-        guard loginField.text != nil else {
-            showAlert(title: "Ошибка входа", message: "Укажите логин", actions: [getRetryAction()])
+        guard let login = loginField.text else {
+            loginField.showError()
+            return
+        }
+        if login.isEmpty {
+            loginField.showError()
             return
         }
         
-        guard passwordField.text != nil else {
-            showAlert(title: "Ошибка входа", message: "Укажите пароль", actions: [getRetryAction()])
+        guard let password = passwordField.text else {
+            passwordField.showError()
             return
         }
-        
-        let login = loginField.text!
-        let password = passwordField.text!
-        
-        if login.isEmpty || password.isEmpty {
-            showAlert(
-                title: "Ошибка входа",
-                message: "Для входа необходимо заполнить логин и пароль!",
-                actions: [getRetryAction()])
+        if password.isEmpty {
+            passwordField.showError()
             return
         }
-        
+                
         if login == "admin" && password == "123" {
-            showAlert(
-                title: "Вход в приложение",
-                message: "Вы вошли в систему",
-                actions: [UIAlertAction(title: "Продолжить вход", style: UIAlertAction.Style.default, handler: { _ in print("Вход выполнен") })])
+            
+            showSpinner()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.performSegue(withIdentifier: self.fromLoginToMainBarController, sender: nil)
+                self.hideSpinner()
+            }
+            
         } else {
             showAlert(
                 title: "Вход в приложение",
@@ -96,11 +138,16 @@ class LoginViewController: UIViewController {
         }
     }
     
+    func showError(_ message: String) {
+        showAlert(title: "Ошибка входа", message: message, actions: [getRetryAction()])
+    }
+    
     func getRetryAction() -> UIAlertAction {
         return UIAlertAction(title: "Повторить попытку", style: UIAlertAction.Style.default, handler: nil)
     }
     
     func showAlert(title: String, message: String, actions: [UIAlertAction]) {
+        hideSpinner()
         let alert = UIAlertController(
             title: title,
             message: message,
@@ -138,4 +185,3 @@ class LoginViewController: UIViewController {
         scrollView?.endEditing(true)
     }
 }
-

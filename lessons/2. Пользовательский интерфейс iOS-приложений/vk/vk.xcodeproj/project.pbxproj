@@ -7,15 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E96B91622845650200960540 /* MyGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96B91612845650200960540 /* MyGroupsViewController.swift */; };
+		E96B91642845654900960540 /* AllGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96B91632845654900960540 /* AllGroupsViewController.swift */; };
+		E96B91662845677200960540 /* MyFiendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96B91652845677200960540 /* MyFiendsViewController.swift */; };
+		E96B91682845679600960540 /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96B91672845679600960540 /* FriendViewController.swift */; };
+		E96B916A284567B700960540 /* FindFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96B9169284567B700960540 /* FindFriendViewController.swift */; };
 		E96F4CF42837DC89008396D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96F4CF32837DC89008396D2 /* AppDelegate.swift */; };
 		E96F4CF62837DC89008396D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96F4CF52837DC89008396D2 /* SceneDelegate.swift */; };
 		E96F4CF82837DC89008396D2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96F4CF72837DC89008396D2 /* LoginViewController.swift */; };
 		E96F4CFB2837DC89008396D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E96F4CF92837DC89008396D2 /* Main.storyboard */; };
 		E96F4CFD2837DC8D008396D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E96F4CFC2837DC8D008396D2 /* Assets.xcassets */; };
 		E96F4D002837DC8D008396D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E96F4CFE2837DC8D008396D2 /* LaunchScreen.storyboard */; };
+		E9CA75DA28465A9C00C6DE45 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA75D928465A9C00C6DE45 /* UITextFieldExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E96B91612845650200960540 /* MyGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsViewController.swift; sourceTree = "<group>"; };
+		E96B91632845654900960540 /* AllGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsViewController.swift; sourceTree = "<group>"; };
+		E96B91652845677200960540 /* MyFiendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFiendsViewController.swift; sourceTree = "<group>"; };
+		E96B91672845679600960540 /* FriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
+		E96B9169284567B700960540 /* FindFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindFriendViewController.swift; sourceTree = "<group>"; };
 		E96F4CF02837DC89008396D2 /* vk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E96F4CF32837DC89008396D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E96F4CF52837DC89008396D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +35,7 @@
 		E96F4CFC2837DC8D008396D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E96F4CFF2837DC8D008396D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E96F4D012837DC8D008396D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9CA75D928465A9C00C6DE45 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +49,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E96B91602845557E00960540 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E96F4CF72837DC89008396D2 /* LoginViewController.swift */,
+				E96B9169284567B700960540 /* FindFriendViewController.swift */,
+				E96B91672845679600960540 /* FriendViewController.swift */,
+				E96B91652845677200960540 /* MyFiendsViewController.swift */,
+				E96B91632845654900960540 /* AllGroupsViewController.swift */,
+				E96B91612845650200960540 /* MyGroupsViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		E96F4CE72837DC89008396D2 = {
 			isa = PBXGroup;
 			children = (
@@ -58,8 +83,9 @@
 			children = (
 				E96F4CF32837DC89008396D2 /* AppDelegate.swift */,
 				E96F4CF52837DC89008396D2 /* SceneDelegate.swift */,
-				E96F4CF72837DC89008396D2 /* LoginViewController.swift */,
+				E96B91602845557E00960540 /* ViewControllers */,
 				E96F4CF92837DC89008396D2 /* Main.storyboard */,
+				E9CA75D928465A9C00C6DE45 /* UITextFieldExtension.swift */,
 				E96F4CFC2837DC8D008396D2 /* Assets.xcassets */,
 				E96F4CFE2837DC8D008396D2 /* LaunchScreen.storyboard */,
 				E96F4D012837DC8D008396D2 /* Info.plist */,
@@ -138,7 +164,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E96B91622845650200960540 /* MyGroupsViewController.swift in Sources */,
+				E9CA75DA28465A9C00C6DE45 /* UITextFieldExtension.swift in Sources */,
+				E96B916A284567B700960540 /* FindFriendViewController.swift in Sources */,
+				E96B91642845654900960540 /* AllGroupsViewController.swift in Sources */,
 				E96F4CF82837DC89008396D2 /* LoginViewController.swift in Sources */,
+				E96B91682845679600960540 /* FriendViewController.swift in Sources */,
+				E96B91662845677200960540 /* MyFiendsViewController.swift in Sources */,
 				E96F4CF42837DC89008396D2 /* AppDelegate.swift in Sources */,
 				E96F4CF62837DC89008396D2 /* SceneDelegate.swift in Sources */,
 			);
