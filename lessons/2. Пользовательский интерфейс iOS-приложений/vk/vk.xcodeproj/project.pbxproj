@@ -18,6 +18,7 @@
 		E96F4CFB2837DC89008396D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E96F4CF92837DC89008396D2 /* Main.storyboard */; };
 		E96F4CFD2837DC8D008396D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E96F4CFC2837DC8D008396D2 /* Assets.xcassets */; };
 		E96F4D002837DC8D008396D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E96F4CFE2837DC8D008396D2 /* LaunchScreen.storyboard */; };
+		E9CA75DA28465A9C00C6DE45 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA75D928465A9C00C6DE45 /* UITextFieldExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		E96F4CFC2837DC8D008396D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E96F4CFF2837DC8D008396D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E96F4D012837DC8D008396D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9CA75D928465A9C00C6DE45 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				E96F4CF52837DC89008396D2 /* SceneDelegate.swift */,
 				E96B91602845557E00960540 /* ViewControllers */,
 				E96F4CF92837DC89008396D2 /* Main.storyboard */,
+				E9CA75D928465A9C00C6DE45 /* UITextFieldExtension.swift */,
 				E96F4CFC2837DC8D008396D2 /* Assets.xcassets */,
 				E96F4CFE2837DC8D008396D2 /* LaunchScreen.storyboard */,
 				E96F4D012837DC8D008396D2 /* Info.plist */,
@@ -162,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E96B91622845650200960540 /* MyGroupsViewController.swift in Sources */,
+				E9CA75DA28465A9C00C6DE45 /* UITextFieldExtension.swift in Sources */,
 				E96B916A284567B700960540 /* FindFriendViewController.swift in Sources */,
 				E96B91642845654900960540 /* AllGroupsViewController.swift in Sources */,
 				E96F4CF82837DC89008396D2 /* LoginViewController.swift in Sources */,

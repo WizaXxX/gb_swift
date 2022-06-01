@@ -100,20 +100,20 @@ class LoginViewController: UIViewController {
     @IBAction func Enter(_ sender: Any) {
         
         guard let login = loginField.text else {
-            showError("Укажите логин")
+            loginField.showError()
             return
         }
         if login.isEmpty {
-            showError("Укажите логин")
+            loginField.showError()
             return
         }
         
         guard let password = passwordField.text else {
-            showError("Укажите пароль")
+            passwordField.showError()
             return
         }
         if password.isEmpty {
-            showError("Укажите пароль")
+            passwordField.showError()
             return
         }
                 
