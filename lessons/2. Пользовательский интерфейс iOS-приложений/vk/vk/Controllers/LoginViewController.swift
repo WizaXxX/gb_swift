@@ -120,6 +120,10 @@ class LoginViewController: UIViewController {
         if login == "admin" && password == "123" {
             
             showSpinner()
+            
+            let all_data = Data()
+            all_data.generateData()
+            
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.performSegue(withIdentifier: self.fromLoginToMainBarController, sender: nil)
                 self.hideSpinner()

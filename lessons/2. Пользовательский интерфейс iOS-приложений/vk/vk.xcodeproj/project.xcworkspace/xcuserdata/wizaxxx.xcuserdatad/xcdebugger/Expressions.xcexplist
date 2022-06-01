@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "MyFiendsViewController.prepare(for:sender:):MyFiendsViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "sender as! Friend">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "LoginViewController.keyboardWillShow(notification:):LoginViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -17,6 +25,9 @@
                value = "loginField.text">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CustomTableViewCell.configure(newId:newName:newDesc:NewNumberOfData:newImage:):CustomTableViewCell.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>
