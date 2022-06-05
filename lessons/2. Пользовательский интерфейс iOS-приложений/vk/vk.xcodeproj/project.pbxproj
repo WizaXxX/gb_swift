@@ -19,6 +19,11 @@
 		E96F4CFD2837DC8D008396D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E96F4CFC2837DC8D008396D2 /* Assets.xcassets */; };
 		E96F4D002837DC8D008396D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E96F4CFE2837DC8D008396D2 /* LaunchScreen.storyboard */; };
 		E9CA75DA28465A9C00C6DE45 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA75D928465A9C00C6DE45 /* UITextFieldExtension.swift */; };
+		E9CA75E02847B0A000C6DE45 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA75DE2847B0A000C6DE45 /* CustomTableViewCell.swift */; };
+		E9CA75E12847B0A000C6DE45 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9CA75DF2847B0A000C6DE45 /* CustomTableViewCell.xib */; };
+		E9CA75E32847E02500C6DE45 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA75E22847E02500C6DE45 /* Friend.swift */; };
+		E9CA75E52847E08D00C6DE45 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA75E42847E08D00C6DE45 /* Data.swift */; };
+		E9CA75E72847E1A800C6DE45 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA75E62847E1A800C6DE45 /* Group.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +41,11 @@
 		E96F4CFF2837DC8D008396D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E96F4D012837DC8D008396D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9CA75D928465A9C00C6DE45 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		E9CA75DE2847B0A000C6DE45 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		E9CA75DF2847B0A000C6DE45 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		E9CA75E22847E02500C6DE45 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		E9CA75E42847E08D00C6DE45 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		E9CA75E62847E1A800C6DE45 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Group.swift; path = ../../../../../../../../../../Applications/Group.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,9 +59,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E96B91602845557E00960540 /* ViewControllers */ = {
+		E96B91602845557E00960540 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E9CA75DD2847B06C00C6DE45 /* cells */,
 				E96F4CF72837DC89008396D2 /* LoginViewController.swift */,
 				E96B9169284567B700960540 /* FindFriendViewController.swift */,
 				E96B91672845679600960540 /* FriendViewController.swift */,
@@ -59,7 +70,7 @@
 				E96B91632845654900960540 /* AllGroupsViewController.swift */,
 				E96B91612845650200960540 /* MyGroupsViewController.swift */,
 			);
-			path = ViewControllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		E96F4CE72837DC89008396D2 = {
@@ -81,16 +92,44 @@
 		E96F4CF22837DC89008396D2 /* vk */ = {
 			isa = PBXGroup;
 			children = (
-				E96F4CF32837DC89008396D2 /* AppDelegate.swift */,
-				E96F4CF52837DC89008396D2 /* SceneDelegate.swift */,
-				E96B91602845557E00960540 /* ViewControllers */,
+				E9CA75DC2847B04F00C6DE45 /* Models */,
+				E9CA75DB2847B03400C6DE45 /* System */,
+				E96B91602845557E00960540 /* Controllers */,
 				E96F4CF92837DC89008396D2 /* Main.storyboard */,
-				E9CA75D928465A9C00C6DE45 /* UITextFieldExtension.swift */,
+				E9CA75E42847E08D00C6DE45 /* Data.swift */,
 				E96F4CFC2837DC8D008396D2 /* Assets.xcassets */,
 				E96F4CFE2837DC8D008396D2 /* LaunchScreen.storyboard */,
 				E96F4D012837DC8D008396D2 /* Info.plist */,
 			);
 			path = vk;
+			sourceTree = "<group>";
+		};
+		E9CA75DB2847B03400C6DE45 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				E9CA75D928465A9C00C6DE45 /* UITextFieldExtension.swift */,
+				E96F4CF32837DC89008396D2 /* AppDelegate.swift */,
+				E96F4CF52837DC89008396D2 /* SceneDelegate.swift */,
+			);
+			name = System;
+			sourceTree = "<group>";
+		};
+		E9CA75DC2847B04F00C6DE45 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E9CA75E22847E02500C6DE45 /* Friend.swift */,
+				E9CA75E62847E1A800C6DE45 /* Group.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E9CA75DD2847B06C00C6DE45 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				E9CA75DE2847B0A000C6DE45 /* CustomTableViewCell.swift */,
+				E9CA75DF2847B0A000C6DE45 /* CustomTableViewCell.xib */,
+			);
+			path = cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +192,7 @@
 			files = (
 				E96F4D002837DC8D008396D2 /* LaunchScreen.storyboard in Resources */,
 				E96F4CFD2837DC8D008396D2 /* Assets.xcassets in Resources */,
+				E9CA75E12847B0A000C6DE45 /* CustomTableViewCell.xib in Resources */,
 				E96F4CFB2837DC89008396D2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -170,9 +210,13 @@
 				E96B91642845654900960540 /* AllGroupsViewController.swift in Sources */,
 				E96F4CF82837DC89008396D2 /* LoginViewController.swift in Sources */,
 				E96B91682845679600960540 /* FriendViewController.swift in Sources */,
+				E9CA75E72847E1A800C6DE45 /* Group.swift in Sources */,
+				E9CA75E02847B0A000C6DE45 /* CustomTableViewCell.swift in Sources */,
+				E9CA75E52847E08D00C6DE45 /* Data.swift in Sources */,
 				E96B91662845677200960540 /* MyFiendsViewController.swift in Sources */,
 				E96F4CF42837DC89008396D2 /* AppDelegate.swift in Sources */,
 				E96F4CF62837DC89008396D2 /* SceneDelegate.swift in Sources */,
+				E9CA75E32847E02500C6DE45 /* Friend.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
