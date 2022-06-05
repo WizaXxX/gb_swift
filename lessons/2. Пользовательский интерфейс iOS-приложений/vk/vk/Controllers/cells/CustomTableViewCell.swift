@@ -8,14 +8,16 @@
 import UIKit
 
 class CustomTableViewCell: UITableViewCell {
-
+    
+    
     @IBOutlet weak var imageOfData: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var numberOfDataLabel: UILabel!
     
     var id: Int? = nil
-        
+    var data: CommonUserData?
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         
@@ -25,13 +27,13 @@ class CustomTableViewCell: UITableViewCell {
         numberOfDataLabel.text = nil
         
     }
-        
-    func configure(newId: Int?, newName: String?, newDesc: String?, NewNumberOfData: Int?, newImage: UIImage?) {
-        id = newId
-        nameLabel.text = newName
-        descLabel.text = newDesc
-        numberOfDataLabel.text = "\(NewNumberOfData ?? 0)"
-        imageOfData.image = newImage
+            
+    func configure(_ userData: CommonUserData) {
+        data = userData
+        nameLabel.text = userData.name
+        descLabel.text = userData.getDescription()
+        numberOfDataLabel.text = "\(userData.getNumbersData())"
+        imageOfData.image = userData.image
     }
     
 }

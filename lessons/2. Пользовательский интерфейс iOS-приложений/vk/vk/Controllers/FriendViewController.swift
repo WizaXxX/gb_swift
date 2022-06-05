@@ -9,8 +9,6 @@ import UIKit
 
 class FriendViewController: UIViewController {
 
-//    @IBOutlet var navigationItem: UINavigationItem!
-    
     @IBOutlet weak var friendImage: UIImageView!
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var nickNameLabel: UILabel!

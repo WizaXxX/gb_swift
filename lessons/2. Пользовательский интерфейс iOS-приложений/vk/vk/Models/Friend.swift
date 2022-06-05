@@ -10,7 +10,7 @@ import UIKit
 struct Friend {
     var id: Int
     var name: String
+    var image: UIImage
     var nickName: String
     var age: Int
-    var image: UIImage
 }

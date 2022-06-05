@@ -15,15 +15,13 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var enterButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var showHidePasswordButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var loadingView: UIView! {
         didSet {
             loadingView.layer.cornerRadius = 6
         }
     }
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
-    let fromLoginToMainBarController = "fromLoginToMainBarController"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -117,51 +115,25 @@ class LoginViewController: UIViewController {
             return
         }
                 
+        showSpinner()
         if login == "admin" && password == "123" {
-            
-            showSpinner()
-            
-            let all_data = Data()
+            let all_data = UserData()
             all_data.generateData()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.performSegue(withIdentifier: self.fromLoginToMainBarController, sender: nil)
+                self.performSegue(withIdentifier: Resouces.Segue.fromLoginToMainBarController, sender: nil)
                 self.hideSpinner()
             }
             
         } else {
-            showAlert(
+            hideSpinner()
+            let alert = UIAlertController(
                 title: "Вход в приложение",
                 message: "Не верный логин или пароль",
-                actions: [
-                    getRetryAction(),
-                    UIAlertAction(
-                        title: "Закрыть приложение",
-                        style: UIAlertAction.Style.cancel,
-                        handler: { _ in exit(0)})])
+                preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Повторить попытку", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
-    }
-    
-    func showError(_ message: String) {
-        showAlert(title: "Ошибка входа", message: message, actions: [getRetryAction()])
-    }
-    
-    func getRetryAction() -> UIAlertAction {
-        return UIAlertAction(title: "Повторить попытку", style: UIAlertAction.Style.default, handler: nil)
-    }
-    
-    func showAlert(title: String, message: String, actions: [UIAlertAction]) {
-        hideSpinner()
-        let alert = UIAlertController(
-            title: title,
-            message: message,
-            preferredStyle: UIAlertController.Style.alert)
-        
-        for action in actions {
-            alert.addAction(action)
-        }
-        
-        self.present(alert, animated: true, completion: nil)
     }
     
     @objc func keyboardWillShow(notification: Notification) {
