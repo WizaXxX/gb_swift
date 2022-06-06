@@ -14,6 +14,8 @@ public struct Resouces {
         static let fromFriendListToFriend = "fromFriendListToFriend"
         static let fromMyGroupsToAllGroups = "fromMyGroupsToAllGroups"
         static let fromGroupListToGroup = "fromGroupListToGroup"
+        static let fromFriendToPhoto = "fromFriendToPhoto"
+        static let fromGroupMembersToFriend = "fromGroupMembersToFriend"
     }
     
     struct Notification {
@@ -23,9 +25,11 @@ public struct Resouces {
     
     struct CellIdentifiers {
         static let customTableView = "customTableViewCellIdentifier"
+        static let photoCollectionView = "photoCollectionViewCellIdentifier"
     }
     
     struct Cell {
         static let customTableViewCell = "CustomTableViewCell"
+        static let photoCollectionViewCell = "PhotoCollectionViewCell"
     }
 }

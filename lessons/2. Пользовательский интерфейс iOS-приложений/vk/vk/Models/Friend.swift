@@ -13,4 +13,5 @@ struct Friend {
     var image: UIImage
     var nickName: String
     var age: Int
+    var photos: [UIImage]
 }
