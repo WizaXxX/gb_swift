@@ -37,4 +37,11 @@ class AllGroupsViewController: UIViewController {
         super.init(coder: coder)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        if let group = sender as? Group {
+            group.prepareSegue(segue: segue)
+        }
+    }
+    
 }

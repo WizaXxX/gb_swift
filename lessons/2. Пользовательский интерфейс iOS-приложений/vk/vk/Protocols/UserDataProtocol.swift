@@ -16,6 +16,7 @@ protocol CommonUserData {
     func getDescription() -> String
     func getNumbersData() -> Int
     func segueFromItemListToItem() -> String?
+    func prepareSegue(segue: UIStoryboardSegue)
     
 }
 
@@ -33,6 +34,16 @@ extension Friend: CommonUserData {
         return Resouces.Segue.fromFriendListToFriend
     }
     
+    func prepareSegue(segue: UIStoryboardSegue) {
+        
+        guard segue.identifier == segueFromItemListToItem() else {
+            return
+        }
+        
+        let view = segue.destination as! FriendViewController
+        view.configure(friend: self)
+    }
+    
 }
 
 extension Group: CommonUserData {
@@ -47,5 +58,14 @@ extension Group: CommonUserData {
     
     func segueFromItemListToItem() -> String? {
         return Resouces.Segue.fromGroupListToGroup
+    }
+    
+    func prepareSegue(segue: UIStoryboardSegue) {
+        guard segue.identifier == segueFromItemListToItem() else {
+            return
+        }
+        
+        let view = segue.destination as! GroupViewController
+        view.configure(group: self)
     }
 }

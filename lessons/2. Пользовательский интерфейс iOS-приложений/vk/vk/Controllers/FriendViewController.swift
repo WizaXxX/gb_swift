@@ -24,4 +24,8 @@ class FriendViewController: UIViewController {
         nickNameLabel.text = friend!.nickName
         
     }
+    
+    func configure(friend: Friend) {
+        self.friend = friend
+    }
 }

@@ -211,12 +211,12 @@
                     <navigationItem key="navigationItem" title="Найти друга" id="eMP-mp-6tC"/>
                     <connections>
                         <outlet property="tableView" destination="YxU-rl-A8d" id="uV4-pa-lGZ"/>
-                        <segue destination="qx2-tN-erL" kind="show" identifier="fromFriendListToFriend" id="ZZz-1a-IGw"/>
+                        <segue destination="qx2-tN-erL" kind="show" identifier="fromFriendListToFriend" id="e4f-gh-GRk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="smk-E3-4DF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2845" y="-1254"/>
+            <point key="canvasLocation" x="2845" y="-540"/>
         </scene>
         <!--Друг-->
         <scene sceneID="OAr-hj-afH">
@@ -275,7 +275,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dgx-EN-nKa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2845" y="-540"/>
+            <point key="canvasLocation" x="2390" y="-1252"/>
         </scene>
         <!--Мои группы-->
         <scene sceneID="qjU-fV-SO5">
@@ -449,6 +449,7 @@
                     <connections>
                         <outlet property="collectionView" destination="qH9-e3-XRf" id="cUB-RO-9cc"/>
                         <outlet property="imageView" destination="WSz-sr-sJ8" id="1nc-a9-OkO"/>
+                        <outlet property="scrollView" destination="swl-d5-BDq" id="xkE-lb-pKd"/>
                         <outlet property="segmentControll" destination="T8M-JF-QQy" id="K2j-Sq-6gr"/>
                         <outlet property="textView" destination="ADa-zg-CJ0" id="AsJ-kD-7yU"/>
                     </connections>
@@ -518,7 +519,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="4pm-wK-zbZ"/>
-        <segue reference="lge-wH-y4T"/>
+        <segue reference="e4f-gh-GRk"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="eye.slash.circle" catalog="system" width="128" height="121"/>

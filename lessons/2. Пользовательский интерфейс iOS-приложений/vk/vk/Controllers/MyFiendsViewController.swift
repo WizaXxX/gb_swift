@@ -56,12 +56,8 @@ class MyFiendsViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        
-        guard segue.identifier == Resouces.Segue.fromFriendListToFriend else {
-            return
+        if let friend = sender as? Friend {
+            friend.prepareSegue(segue: segue)
         }
-        let friend = sender as! Friend
-        let view = segue.destination as! FriendViewController
-        view.friend = friend
     }
 }

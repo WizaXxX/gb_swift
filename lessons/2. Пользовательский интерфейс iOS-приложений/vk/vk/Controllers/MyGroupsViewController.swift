@@ -54,13 +54,9 @@ class MyGroupsViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        
-        guard segue.identifier == Resouces.Segue.fromGroupListToGroup else {
-            return
+        if let group = sender as? Group {
+            group.prepareSegue(segue: segue)
         }
-        let group = sender as! Group
-        let view = segue.destination as! GroupViewController
-        view.group = group
     }
     
 }

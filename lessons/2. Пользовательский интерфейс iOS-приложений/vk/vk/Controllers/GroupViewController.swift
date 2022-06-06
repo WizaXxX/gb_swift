@@ -13,6 +13,7 @@ class GroupViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     var group: Group? = nil
     
@@ -39,6 +40,21 @@ class GroupViewController: UIViewController {
         textView.text = group?.desc
         imageView.image = group?.image
         
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        print(UIDevice.current.orientation.rawValue)
+        
+        if UIDevice.current.orientation == .landscapeRight {
+            let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 300.0, right: 0.0)
+            scrollView?.contentInset = contentInsets
+            scrollView?.scrollIndicatorInsets = contentInsets
+        }
+    }
+    
+    func configure(group: Group) {
+        self.group = group
     }
     
 }
