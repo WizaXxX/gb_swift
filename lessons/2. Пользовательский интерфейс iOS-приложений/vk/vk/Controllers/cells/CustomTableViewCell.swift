@@ -9,31 +9,38 @@ import UIKit
 
 class CustomTableViewCell: UITableViewCell {
     
-    
-    @IBOutlet weak var imageOfData: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
-    @IBOutlet weak var numberOfDataLabel: UILabel!
-    
+    @IBOutlet weak var avatarView: AvatarView!
+//    
     var id: Int? = nil
     var data: CommonUserData?
     
+    
     override func prepareForReuse() {
         super.prepareForReuse()
-        
-        imageOfData.image = nil
+        avatarView.imageView.image = nil
         nameLabel.text = nil
         descLabel.text = nil
-        numberOfDataLabel.text = nil
-        
     }
             
     func configure(_ userData: CommonUserData) {
         data = userData
         nameLabel.text = userData.name
         descLabel.text = userData.getDescription()
-        numberOfDataLabel.text = "\(userData.getNumbersData())"
-        imageOfData.image = userData.image
+        
+        avatarView.imageView.image = userData.image
+        avatarView.clipsToBounds = false
+        avatarView.layer.cornerRadius = 20
+        avatarView.layer.shadowColor = UIColor.black.cgColor
+        avatarView.layer.shadowOffset = CGSize(width: 5, height: 5)
+        avatarView.layer.shadowRadius = 10
+        avatarView.layer.shadowOpacity = 0.7
+        avatarView.backgroundColor = .white
+
+        avatarView.imageView.clipsToBounds = true
+        avatarView.imageView.layer.cornerRadius = avatarView.layer.cornerRadius
+        
     }
     
 }
