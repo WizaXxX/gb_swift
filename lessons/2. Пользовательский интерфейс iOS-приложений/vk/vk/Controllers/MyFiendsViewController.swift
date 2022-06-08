@@ -7,27 +7,43 @@
 
 import UIKit
 
-class MyFiendsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MyFiendsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    let fromMyFriendsToFindFriends = "fromMyFriendsToFindFriends"
-    let fromMyFriendToFriend = "fromMyFriendToFriend"
-    let customTableViewCellIdentifier = "customTableViewCellIdentifier"
-    let addFriendNotificationName = "addNotificationName"
+    let delegate: MyDataDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: customTableViewCellIdentifier)
-        tableView.dataSource = self
-        tableView.delegate = self
+        tableView.register(
+            UINib(nibName: Resouces.Cell.customTableViewCell, bundle: nil),
+            forCellReuseIdentifier: Resouces.CellIdentifiers.customTableView)
+        
+        tableView.dataSource = delegate
+        tableView.delegate = delegate
         
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(friendAdded(_:)),
-            name: Notification.Name(addFriendNotificationName),
+            name: Notification.Name(Resouces.Notification.addFriend),
             object: nil)
+        
+        self.delegate.viewController = self
+    }
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        self.delegate = MyDataDelegate(manager: UserFriendsDataManager())
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.delegate = MyDataDelegate(manager: UserFriendsDataManager())
+        super.init(coder: coder)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     @objc func friendAdded(_ notification: Notification) {
@@ -35,54 +51,13 @@ class MyFiendsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     @IBAction func pressAddFriends(_ sender: Any) {
-        performSegue(withIdentifier: fromMyFriendsToFindFriends, sender: nil)
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Data.myFriends.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(
-            withIdentifier: customTableViewCellIdentifier,
-            for: indexPath) as! CustomTableViewCell
-        
-        let data = Data.myFriends[indexPath.row]
-        cell.configure(newId: data.id, newName: data.name, newDesc: data.nickName, NewNumberOfData: data.age, newImage: data.image)
-        
-        return cell
-    }
-        
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell = tableView.cellForRow(at: indexPath) as? CustomTableViewCell else {
-            return
-        }
-        let friend = Data.myFriends.first { $0.id == cell.id }
-        performSegue(withIdentifier: fromMyFriendToFriend, sender: friend)
+        performSegue(withIdentifier: Resouces.Segue.fromMyFriendsToFindFriends, sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == fromMyFriendToFriend else {
-            return
+        super.prepare(for: segue, sender: sender)
+        if let friend = sender as? Friend {
+            friend.prepareSegue(segue: segue)
         }
-        let friend = sender as! Friend
-        let view = segue.destination as! FriendViewController
-        view.friend = friend
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        guard editingStyle == .delete else {
-            return
-        }
-        
-        guard let cell = tableView.cellForRow(at: indexPath) as? CustomTableViewCell else {
-            return
-        }
-        
-        let friend = Data.myFriends.first { $0.id == cell.id }
-        let indexForDelete = Data.myFriends.firstIndex(where: { $0.id == cell.id })
-        Data.myFriends.remove(at: indexForDelete!)
-        Data.allFriends.append(friend!)
-        tableView.deleteRows(at: [indexPath], with: .fade)
     }
 }
