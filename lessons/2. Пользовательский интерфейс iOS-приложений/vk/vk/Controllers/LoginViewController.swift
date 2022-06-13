@@ -15,13 +15,11 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var enterButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var showHidePasswordButton: UIButton!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    @IBOutlet weak var loadingView: UIView! {
-        didSet {
-            loadingView.layer.cornerRadius = 6
-        }
-    }
+    @IBOutlet weak var progressView: UIView!
+    @IBOutlet weak var purpleView: UIView!
+    @IBOutlet weak var pinkView: UIView!
+    @IBOutlet weak var tealView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +30,14 @@ class LoginViewController: UIViewController {
         scrollView?.addGestureRecognizer(hideKeyboardGesture)
         
         hideSpinner()
+        
+        purpleView.layer.cornerRadius = 25
+        purpleView.alpha = 0
+        pinkView.layer.cornerRadius = 25
+        pinkView.alpha = 0
+        tealView.layer.cornerRadius = 25
+        pinkView.alpha = 0
+        
     }
         
     override func viewWillAppear(_ animated: Bool) {
@@ -77,67 +83,84 @@ class LoginViewController: UIViewController {
         
     }
     
-    private func showSpinner() {
-        activityIndicator.startAnimating()
-        loadingView.isHidden = false
+    private func showSpinner(_ maxNumbersOfCircle: Int = 1, numberOfCircle: Int = 1) {
         
-        loginField.isEnabled = false
-        passwordField.isEnabled = false
-        enterButton.isEnabled = false
+        progressView.isHidden = false
+        UIView.animate(withDuration: 0.5) { [weak self] in
+            self?.purpleView.alpha = 1
+            self?.pinkView.alpha = 0
+            self?.tealView.alpha = 0
+        } completion: { _ in
+            UIView.animate(withDuration: 0.5) { [weak self] in
+                self?.purpleView.alpha = 0
+                self?.pinkView.alpha = 1
+                self?.tealView.alpha = 0
+            } completion: { _ in
+                UIView.animate(withDuration: 0.5) { [weak self] in
+                    self?.purpleView.alpha = 0
+                    self?.pinkView.alpha = 0
+                    self?.tealView.alpha = 1
+                } completion: {[weak self] _ in
+                    
+                    if numberOfCircle == maxNumbersOfCircle {
+                        self?.performSegue(withIdentifier: Resouces.Segue.fromLoginToMainBarController, sender: nil)
+                    } else {
+                        self?.showSpinner(
+                            maxNumbersOfCircle,
+                            numberOfCircle: numberOfCircle + 1)
+                    }
+                    
+                }
+            }
+        }
+
+        
     }
     
     private func hideSpinner() {
-        activityIndicator.stopAnimating()
-        loadingView.isHidden = true
         
         loginField.isEnabled = true
         passwordField.isEnabled = true
         enterButton.isEnabled = true
+        
+        progressView.isHidden = true
+        
     }
     
     @IBAction func Enter(_ sender: Any) {
         
-        let all_data = UserData()
-        all_data.generateData()
-        self.performSegue(withIdentifier: Resouces.Segue.fromLoginToMainBarController, sender: nil)
-        
-//        guard let login = loginField.text else {
-//            loginField.showError()
-//            return
-//        }
-//        if login.isEmpty {
-//            loginField.showError()
-//            return
-//        }
-//
-//        guard let password = passwordField.text else {
-//            passwordField.showError()
-//            return
-//        }
-//        if password.isEmpty {
-//            passwordField.showError()
-//            return
-//        }
-//
-//        showSpinner()
-//        if login == "admin" && password == "123" {
-//            let all_data = UserData()
-//            all_data.generateData()
-//
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//                self.performSegue(withIdentifier: Resouces.Segue.fromLoginToMainBarController, sender: nil)
-//                self.hideSpinner()
-//            }
-//
-//        } else {
-//            hideSpinner()
-//            let alert = UIAlertController(
-//                title: "Вход в приложение",
-//                message: "Не верный логин или пароль",
-//                preferredStyle: UIAlertController.Style.alert)
-//            alert.addAction(UIAlertAction(title: "Повторить попытку", style: UIAlertAction.Style.default, handler: nil))
-//            self.present(alert, animated: true, completion: nil)
-//        }
+        guard let login = loginField.text else {
+            loginField.showError()
+            return
+        }
+        if login.isEmpty {
+            loginField.showError()
+            return
+        }
+
+        guard let password = passwordField.text else {
+            passwordField.showError()
+            return
+        }
+        if password.isEmpty {
+            passwordField.showError()
+            return
+        }
+
+        if login == "admin" && password == "123" {
+            let all_data = UserData()
+            all_data.generateData()
+
+            showSpinner(3)
+
+        } else {
+            let alert = UIAlertController(
+                title: "Вход в приложение",
+                message: "Не верный логин или пароль",
+                preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Повторить попытку", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     @objc func keyboardWillShow(notification: Notification) {
