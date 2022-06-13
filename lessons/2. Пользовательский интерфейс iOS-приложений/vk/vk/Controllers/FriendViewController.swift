@@ -82,7 +82,7 @@ extension FriendViewController: UICollectionViewDelegateFlowLayout {
         
         let width = collectionView.bounds.width
         let whiteSpaces: CGFloat = 20
-        let cellWidth = width / 3 - whiteSpaces
+        let cellWidth = width / 2 - whiteSpaces
         
         return CGSize(width: cellWidth, height: cellWidth)
     }

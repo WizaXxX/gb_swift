@@ -97,43 +97,47 @@ class LoginViewController: UIViewController {
     
     @IBAction func Enter(_ sender: Any) {
         
-        guard let login = loginField.text else {
-            loginField.showError()
-            return
-        }
-        if login.isEmpty {
-            loginField.showError()
-            return
-        }
+        let all_data = UserData()
+        all_data.generateData()
+        self.performSegue(withIdentifier: Resouces.Segue.fromLoginToMainBarController, sender: nil)
         
-        guard let password = passwordField.text else {
-            passwordField.showError()
-            return
-        }
-        if password.isEmpty {
-            passwordField.showError()
-            return
-        }
-                
-        showSpinner()
-        if login == "admin" && password == "123" {
-            let all_data = UserData()
-            all_data.generateData()
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.performSegue(withIdentifier: Resouces.Segue.fromLoginToMainBarController, sender: nil)
-                self.hideSpinner()
-            }
-            
-        } else {
-            hideSpinner()
-            let alert = UIAlertController(
-                title: "Вход в приложение",
-                message: "Не верный логин или пароль",
-                preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Повторить попытку", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
+//        guard let login = loginField.text else {
+//            loginField.showError()
+//            return
+//        }
+//        if login.isEmpty {
+//            loginField.showError()
+//            return
+//        }
+//
+//        guard let password = passwordField.text else {
+//            passwordField.showError()
+//            return
+//        }
+//        if password.isEmpty {
+//            passwordField.showError()
+//            return
+//        }
+//
+//        showSpinner()
+//        if login == "admin" && password == "123" {
+//            let all_data = UserData()
+//            all_data.generateData()
+//
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//                self.performSegue(withIdentifier: Resouces.Segue.fromLoginToMainBarController, sender: nil)
+//                self.hideSpinner()
+//            }
+//
+//        } else {
+//            hideSpinner()
+//            let alert = UIAlertController(
+//                title: "Вход в приложение",
+//                message: "Не верный логин или пароль",
+//                preferredStyle: UIAlertController.Style.alert)
+//            alert.addAction(UIAlertAction(title: "Повторить попытку", style: UIAlertAction.Style.default, handler: nil))
+//            self.present(alert, animated: true, completion: nil)
+//        }
     }
     
     @objc func keyboardWillShow(notification: Notification) {
