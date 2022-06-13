@@ -29,8 +29,7 @@ class LoginViewController: UIViewController {
             action: #selector(hideKeyboard))
         scrollView?.addGestureRecognizer(hideKeyboardGesture)
         
-        hideSpinner()
-        
+        progressView.isHidden = true
         purpleView.layer.cornerRadius = 25
         purpleView.alpha = 0
         pinkView.layer.cornerRadius = 25
@@ -83,7 +82,40 @@ class LoginViewController: UIViewController {
         
     }
     
-    private func showSpinner(_ maxNumbersOfCircle: Int = 1, numberOfCircle: Int = 1) {
+    private func startLogin(_ maxNumbersOfCircle: Int = 1, numberOfCircle: Int = 1) {
+        
+        if numberOfCircle == 1 {
+            showHidePasswordButton.isHidden = true
+            enterButton.isEnabled = false
+            UIView.animate(
+                withDuration: 0.5,
+                delay: 0,
+                options: [.curveEaseIn]) { [weak self] in
+                    let moveTo = (self?.scrollView.frame.size.width)! + 100
+                    
+                    let translationForLogin = CGAffineTransform(translationX: moveTo, y: 0)
+                    self?.loginField.transform = translationForLogin
+                    
+                    let translationForPass = CGAffineTransform(translationX: -moveTo, y: 0)
+                    self?.passwordField.transform = translationForPass
+                    
+                } completion: { _ in
+                }
+            UIView.animate(
+                withDuration: 1,
+                delay: 0,
+                usingSpringWithDamping: 0.2,
+                initialSpringVelocity: 5,
+                options: []) { [weak self] in
+                    let height: CGFloat = (self?.scrollView.frame.size.height)!
+                    let buttonPosition: CGFloat = (self?.enterButton.frame.origin.y)!
+                    let moveTo = (height - buttonPosition) - (self?.enterButton.frame.size.height)!
+                    let transformation = CGAffineTransform(translationX: 0, y: moveTo)
+                    self?.enterButton.transform = transformation
+                } completion: { _ in
+                }
+
+        }
         
         progressView.isHidden = false
         UIView.animate(withDuration: 0.5) { [weak self] in
@@ -105,7 +137,7 @@ class LoginViewController: UIViewController {
                     if numberOfCircle == maxNumbersOfCircle {
                         self?.performSegue(withIdentifier: Resouces.Segue.fromLoginToMainBarController, sender: nil)
                     } else {
-                        self?.showSpinner(
+                        self?.startLogin(
                             maxNumbersOfCircle,
                             numberOfCircle: numberOfCircle + 1)
                     }
@@ -114,16 +146,6 @@ class LoginViewController: UIViewController {
             }
         }
 
-        
-    }
-    
-    private func hideSpinner() {
-        
-        loginField.isEnabled = true
-        passwordField.isEnabled = true
-        enterButton.isEnabled = true
-        
-        progressView.isHidden = true
         
     }
     
@@ -151,7 +173,7 @@ class LoginViewController: UIViewController {
             let all_data = UserData()
             all_data.generateData()
 
-            showSpinner(3)
+            startLogin(2)
 
         } else {
             let alert = UIAlertController(
