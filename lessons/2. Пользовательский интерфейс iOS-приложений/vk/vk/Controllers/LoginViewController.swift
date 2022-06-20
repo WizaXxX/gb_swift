@@ -173,7 +173,7 @@ class LoginViewController: UIViewController {
             let all_data = UserData()
             all_data.generateData()
 
-            startLogin(2)
+            startLogin()
 
         } else {
             let alert = UIAlertController(
