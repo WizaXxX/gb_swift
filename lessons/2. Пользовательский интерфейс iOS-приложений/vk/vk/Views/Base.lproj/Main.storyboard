@@ -273,6 +273,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PRA-75-JYF">
+                                <rect key="frame" x="0.0" y="281" width="414" height="532"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aUE-oI-wzE">
                                 <rect key="frame" x="0.0" y="281" width="414" height="532"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -293,23 +297,40 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hUH-Tj-lNo">
+                                <rect key="frame" x="208" y="245" width="206" height="32"/>
+                                <segments>
+                                    <segment title="Список"/>
+                                    <segment title="Галерея"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changePhotoControll:" destination="qx2-tN-erL" eventType="valueChanged" id="Jil-UJ-NVY"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="W7u-8F-32e"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="W7u-8F-32e" firstAttribute="trailing" secondItem="hUH-Tj-lNo" secondAttribute="trailing" id="49c-uW-ewx"/>
                             <constraint firstItem="F0j-De-Vs7" firstAttribute="top" secondItem="W7u-8F-32e" secondAttribute="top" constant="11" id="5RQ-pz-KU8"/>
                             <constraint firstItem="W7u-8F-32e" firstAttribute="trailing" secondItem="aDJ-90-B17" secondAttribute="trailing" id="AC5-kE-epj"/>
                             <constraint firstItem="aUE-oI-wzE" firstAttribute="top" secondItem="SDc-BH-diA" secondAttribute="bottom" constant="5" id="Gps-Wh-Xs1"/>
+                            <constraint firstItem="PRA-75-JYF" firstAttribute="leading" secondItem="W7u-8F-32e" secondAttribute="leading" id="U0Q-bC-jcs"/>
+                            <constraint firstItem="W7u-8F-32e" firstAttribute="bottom" secondItem="PRA-75-JYF" secondAttribute="bottom" id="Vte-5c-dJM"/>
                             <constraint firstItem="SDc-BH-diA" firstAttribute="top" secondItem="W7u-8F-32e" secondAttribute="top" id="X7W-Ny-nBj"/>
                             <constraint firstItem="kci-Oo-X6r" firstAttribute="top" secondItem="W7u-8F-32e" secondAttribute="top" constant="11" id="XdB-vO-5fI"/>
                             <constraint firstItem="F0j-De-Vs7" firstAttribute="leading" secondItem="kci-Oo-X6r" secondAttribute="trailing" constant="15" id="YRP-A1-2bf"/>
+                            <constraint firstItem="hUH-Tj-lNo" firstAttribute="leading" secondItem="SDc-BH-diA" secondAttribute="trailing" constant="20" id="aAf-E4-3wt"/>
                             <constraint firstItem="SDc-BH-diA" firstAttribute="leading" secondItem="W7u-8F-32e" secondAttribute="leading" id="aTy-B7-pue"/>
+                            <constraint firstItem="PRA-75-JYF" firstAttribute="top" secondItem="SDc-BH-diA" secondAttribute="bottom" constant="5" id="cWt-rR-hDw"/>
                             <constraint firstItem="aDJ-90-B17" firstAttribute="leading" secondItem="SDc-BH-diA" secondAttribute="trailing" constant="20" id="db0-5T-yr3"/>
                             <constraint firstItem="W7u-8F-32e" firstAttribute="trailing" secondItem="F0j-De-Vs7" secondAttribute="trailing" constant="100" id="em9-MU-uQ1"/>
                             <constraint firstItem="aUE-oI-wzE" firstAttribute="leading" secondItem="W7u-8F-32e" secondAttribute="leading" id="eyn-F7-se5"/>
+                            <constraint firstItem="hUH-Tj-lNo" firstAttribute="bottom" secondItem="SDc-BH-diA" secondAttribute="bottom" id="gmg-sB-aq9"/>
                             <constraint firstItem="kci-Oo-X6r" firstAttribute="leading" secondItem="SDc-BH-diA" secondAttribute="trailing" constant="20" id="i73-6j-XsU"/>
                             <constraint firstItem="aDJ-90-B17" firstAttribute="top" secondItem="kci-Oo-X6r" secondAttribute="bottom" constant="3.5" id="ig0-3U-YId"/>
                             <constraint firstItem="aDJ-90-B17" firstAttribute="leading" secondItem="kci-Oo-X6r" secondAttribute="leading" id="lUl-dn-msN"/>
+                            <constraint firstItem="W7u-8F-32e" firstAttribute="trailing" secondItem="PRA-75-JYF" secondAttribute="trailing" id="r2l-0y-saF"/>
                             <constraint firstItem="W7u-8F-32e" firstAttribute="bottom" secondItem="aUE-oI-wzE" secondAttribute="bottom" id="tDQ-78-pxU"/>
                             <constraint firstItem="W7u-8F-32e" firstAttribute="trailing" secondItem="aUE-oI-wzE" secondAttribute="trailing" id="x9Z-vQ-sWU"/>
                         </constraints>
@@ -319,6 +340,7 @@
                         <outlet property="ageLabel" destination="F0j-De-Vs7" id="Qnd-mC-aee"/>
                         <outlet property="collectionView" destination="aUE-oI-wzE" id="Vlg-2g-q4Z"/>
                         <outlet property="friendImage" destination="SDc-BH-diA" id="LFz-kZ-gMX"/>
+                        <outlet property="galleryView" destination="PRA-75-JYF" id="jn7-VH-AWF"/>
                         <outlet property="nickNameLabel" destination="aDJ-90-B17" id="H9t-QT-06d"/>
                         <segue destination="INA-40-Lhq" kind="show" identifier="fromFriendToPhoto" id="mFE-CA-hKZ"/>
                     </connections>
