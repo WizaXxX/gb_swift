@@ -24,13 +24,13 @@
 		E96F4CFB2837DC89008396D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E96F4CF92837DC89008396D2 /* Main.storyboard */; };
 		E96F4CFD2837DC8D008396D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E96F4CFC2837DC8D008396D2 /* Assets.xcassets */; };
 		E96F4D002837DC8D008396D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E96F4CFE2837DC8D008396D2 /* LaunchScreen.storyboard */; };
+		E9B1120D286D6AAB001D5CCB /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B1120C286D6AAB001D5CCB /* Group.swift */; };
 		E9B37411284DF8A700800A42 /* PhotoViewerUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B37410284DF8A700800A42 /* PhotoViewerUIViewController.swift */; };
 		E9CA75DA28465A9C00C6DE45 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA75D928465A9C00C6DE45 /* UITextFieldExtension.swift */; };
 		E9CA75E02847B0A000C6DE45 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA75DE2847B0A000C6DE45 /* CustomTableViewCell.swift */; };
 		E9CA75E12847B0A000C6DE45 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9CA75DF2847B0A000C6DE45 /* CustomTableViewCell.xib */; };
 		E9CA75E32847E02500C6DE45 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA75E22847E02500C6DE45 /* Friend.swift */; };
 		E9CA75E52847E08D00C6DE45 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA75E42847E08D00C6DE45 /* UserData.swift */; };
-		E9CA75E72847E1A800C6DE45 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA75E62847E1A800C6DE45 /* Group.swift */; };
 		E9D4C3442850B85700825C89 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D4C3432850B85700825C89 /* AvatarView.swift */; };
 		E9D4C3472850B87C00825C89 /* AvatarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9D4C3462850B87C00825C89 /* AvatarView.xib */; };
 		E9D4C36D28510CAE00825C89 /* LikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D4C36C28510CAE00825C89 /* LikeView.swift */; };
@@ -59,13 +59,13 @@
 		E96F4CFC2837DC8D008396D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E96F4CFF2837DC8D008396D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E96F4D012837DC8D008396D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9B1120C286D6AAB001D5CCB /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		E9B37410284DF8A700800A42 /* PhotoViewerUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewerUIViewController.swift; sourceTree = "<group>"; };
 		E9CA75D928465A9C00C6DE45 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		E9CA75DE2847B0A000C6DE45 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		E9CA75DF2847B0A000C6DE45 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		E9CA75E22847E02500C6DE45 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		E9CA75E42847E08D00C6DE45 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
-		E9CA75E62847E1A800C6DE45 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Group.swift; path = ../../../../../../../../../../Applications/Group.swift; sourceTree = "<group>"; };
 		E9D4C3432850B85700825C89 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		E9D4C3462850B87C00825C89 /* AvatarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvatarView.xib; sourceTree = "<group>"; };
 		E9D4C36C28510CAE00825C89 /* LikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeView.swift; sourceTree = "<group>"; };
@@ -168,7 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				E9CA75E22847E02500C6DE45 /* Friend.swift */,
-				E9CA75E62847E1A800C6DE45 /* Group.swift */,
+				E9B1120C286D6AAB001D5CCB /* Group.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -284,12 +284,12 @@
 				E96B91682845679600960540 /* FriendViewController.swift in Sources */,
 				E9D4C36D28510CAE00825C89 /* LikeView.swift in Sources */,
 				E967BDE7284CA61D00B6C2B2 /* UserDataProtocol.swift in Sources */,
-				E9CA75E72847E1A800C6DE45 /* Group.swift in Sources */,
 				E9CA75E02847B0A000C6DE45 /* CustomTableViewCell.swift in Sources */,
 				E9CA75E52847E08D00C6DE45 /* UserData.swift in Sources */,
 				E967BDE4284C9F7100B6C2B2 /* Resources.swift in Sources */,
 				E9B37411284DF8A700800A42 /* PhotoViewerUIViewController.swift in Sources */,
 				E96B91662845677200960540 /* MyFiendsViewController.swift in Sources */,
+				E9B1120D286D6AAB001D5CCB /* Group.swift in Sources */,
 				E96F4CF42837DC89008396D2 /* AppDelegate.swift in Sources */,
 				E96F4CF62837DC89008396D2 /* SceneDelegate.swift in Sources */,
 				E9CA75E32847E02500C6DE45 /* Friend.swift in Sources */,
