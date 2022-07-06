@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "MyFiendsViewController.prepare(for:sender:):MyFiendsViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "sender as! Friend">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MyFiendsViewController.tableView(_:commit:forRowAt:):MyFiendsViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UserData.myFriends">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "LoginViewController.keyboardWillShow(notification:):LoginViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "(info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue).cgRectValue">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static AppDelegate.$main():AppDelegate.swift">
+      </ContextState>
+      <ContextState
+         contextName = "CustomTableViewCell.configure(newId:newName:newDesc:NewNumberOfData:newImage:):CustomTableViewCell.swift">
+      </ContextState>
+      <ContextState
+         contextName = "LoginViewController.Enter(_:):LoginViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "loginField.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CommonViewControllerDelegate.tableView(_:commit:forRowAt:):CommonViewControllerDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UserData.myFriends">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CommonViewControllerDelegate.tableView(_:didSelectRowAt:):CommonViewControllerDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "tableView.superview">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
