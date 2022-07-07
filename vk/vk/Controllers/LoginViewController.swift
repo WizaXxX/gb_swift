@@ -135,6 +135,10 @@ class LoginViewController: UIViewController {
                 } completion: {[weak self] _ in
                     
                     if numberOfCircle == maxNumbersOfCircle {
+                        Session.instance.token = UUID().uuidString
+                        Session.instance.userId = Int.random(in: (0...Int.max))
+                        print("Токен пользователя: \(Session.instance.token)")
+                        print("Ид пользователя: \(Session.instance.userId)")
                         self?.performSegue(withIdentifier: Resouces.Segue.fromLoginToMainBarController, sender: nil)
                     } else {
                         self?.startLogin(
