@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E65AE5797D2A536824382EB3 /* Pods_vk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD48910594FE4FAF0F1FB96D /* Pods_vk.framework */; };
+		E9186E1F287C4D6700B81856 /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9186E1E287C4D6700B81856 /* WKWebViewController.swift */; };
 		E967BDE4284C9F7100B6C2B2 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = E967BDE3284C9F7100B6C2B2 /* Resources.swift */; };
 		E967BDE7284CA61D00B6C2B2 /* UserDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E967BDE6284CA61D00B6C2B2 /* UserDataProtocol.swift */; };
 		E967BDEF284CB29500B6C2B2 /* MyDataDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E967BDEE284CB29500B6C2B2 /* MyDataDelegate.swift */; };
@@ -25,6 +26,7 @@
 		E96F4CFB2837DC89008396D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E96F4CF92837DC89008396D2 /* Main.storyboard */; };
 		E96F4CFD2837DC8D008396D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E96F4CFC2837DC8D008396D2 /* Assets.xcassets */; };
 		E96F4D002837DC8D008396D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E96F4CFE2837DC8D008396D2 /* LaunchScreen.storyboard */; };
+		E975C48E287B4406000C55F6 /* Networker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E975C48D287B4406000C55F6 /* Networker.swift */; };
 		E9B1120D286D6AAB001D5CCB /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B1120C286D6AAB001D5CCB /* Group.swift */; };
 		E9B37411284DF8A700800A42 /* PhotoViewerUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B37410284DF8A700800A42 /* PhotoViewerUIViewController.swift */; };
 		E9CA75DA28465A9C00C6DE45 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CA75D928465A9C00C6DE45 /* UITextFieldExtension.swift */; };
@@ -43,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		DCA0EBAEFF917C5553CB4490 /* Pods-vk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vk.release.xcconfig"; path = "Target Support Files/Pods-vk/Pods-vk.release.xcconfig"; sourceTree = "<group>"; };
+		E9186E1E287C4D6700B81856 /* WKWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
 		E967BDE3284C9F7100B6C2B2 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		E967BDE6284CA61D00B6C2B2 /* UserDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataProtocol.swift; sourceTree = "<group>"; };
 		E967BDEE284CB29500B6C2B2 /* MyDataDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDataDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +65,7 @@
 		E96F4CFC2837DC8D008396D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E96F4CFF2837DC8D008396D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E96F4D012837DC8D008396D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E975C48D287B4406000C55F6 /* Networker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networker.swift; sourceTree = "<group>"; };
 		E9B1120C286D6AAB001D5CCB /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		E9B37410284DF8A700800A42 /* PhotoViewerUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewerUIViewController.swift; sourceTree = "<group>"; };
 		E9CA75D928465A9C00C6DE45 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
@@ -98,7 +102,6 @@
 				F69E18D467A617516BA6BD82 /* Pods-vk.debug.xcconfig */,
 				DCA0EBAEFF917C5553CB4490 /* Pods-vk.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -135,6 +138,7 @@
 				E9CA75DD2847B06C00C6DE45 /* cells */,
 				E96F4CF72837DC89008396D2 /* LoginViewController.swift */,
 				E967BDEE284CB29500B6C2B2 /* MyDataDelegate.swift */,
+				E9186E1E287C4D6700B81856 /* WKWebViewController.swift */,
 				E9B37410284DF8A700800A42 /* PhotoViewerUIViewController.swift */,
 				E967BDF4284D1C9C00B6C2B2 /* AllDataDelegate.swift */,
 				E96B9169284567B700960540 /* FindFriendViewController.swift */,
@@ -172,6 +176,7 @@
 				E967BDE3284C9F7100B6C2B2 /* Resources.swift */,
 				E9CA75E42847E08D00C6DE45 /* UserData.swift */,
 				E9E6DA652875BA44005E3E8B /* Session.swift */,
+				E975C48D287B4406000C55F6 /* Networker.swift */,
 				E9CA75DC2847B04F00C6DE45 /* Models */,
 				E9CA75DB2847B03400C6DE45 /* System */,
 				E96B91602845557E00960540 /* Controllers */,
@@ -347,9 +352,11 @@
 				E9F3AF69284DEE8A003710B3 /* PhotoCollectionViewCell.swift in Sources */,
 				E96B91622845650200960540 /* MyGroupsViewController.swift in Sources */,
 				E967BDF3284D0CB500B6C2B2 /* DataManagerProtocol.swift in Sources */,
+				E975C48E287B4406000C55F6 /* Networker.swift in Sources */,
 				E9CA75DA28465A9C00C6DE45 /* UITextFieldExtension.swift in Sources */,
 				E967BDF7284D205C00B6C2B2 /* GroupViewController.swift in Sources */,
 				E967BDEF284CB29500B6C2B2 /* MyDataDelegate.swift in Sources */,
+				E9186E1F287C4D6700B81856 /* WKWebViewController.swift in Sources */,
 				E96B916A284567B700960540 /* FindFriendViewController.swift in Sources */,
 				E96B91642845654900960540 /* AllGroupsViewController.swift in Sources */,
 				E96F4CF82837DC89008396D2 /* LoginViewController.swift in Sources */,

@@ -15,7 +15,13 @@ class MyFiendsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
+        Networker.shared.getFriends()
+        Networker.shared.getPhotos(ownerId: String(Session.instance.userId))
+        Networker.shared.getGroups()
+        Networker.shared.searchGoups(query: "MDK")
+        
         tableView.register(
             UINib(nibName: Resouces.Cell.customTableViewCell, bundle: nil),
             forCellReuseIdentifier: Resouces.CellIdentifiers.customTableView)
