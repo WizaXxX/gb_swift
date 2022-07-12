@@ -16,6 +16,7 @@ public struct Resouces {
         static let fromGroupListToGroup = "fromGroupListToGroup"
         static let fromFriendToPhoto = "fromFriendToPhoto"
         static let fromGroupMembersToFriend = "fromGroupMembersToFriend"
+        static let fromVKLoginToMainBarController = "fromVKLoginToMainBarController"
     }
     
     struct Notification {
@@ -31,5 +32,10 @@ public struct Resouces {
     struct Cell {
         static let customTableViewCell = "CustomTableViewCell"
         static let photoCollectionViewCell = "PhotoCollectionViewCell"
+    }
+    
+    struct VKAPI {
+        static let clientId = "8216111"
+        static let version = "5.131"
     }
 }
