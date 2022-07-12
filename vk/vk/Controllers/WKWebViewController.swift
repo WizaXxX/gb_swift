@@ -16,7 +16,11 @@ class WKWebViewController: UIViewController {
         super.viewDidLoad()
         
         webView.navigationDelegate = self
-        
+        loadLoginPage()
+    }
+    
+    func loadLoginPage() {
+       
         var urlComponents = URLComponents(string: "https://oauth.vk.com/authorize")
         urlComponents?.queryItems = [
             URLQueryItem(name: "client_id", value: Resouces.VKAPI.clientId),
@@ -32,7 +36,6 @@ class WKWebViewController: UIViewController {
         let request = URLRequest(url: url)
 
         webView.load(request)
-        
     }
 }
 
@@ -58,10 +61,20 @@ extension WKWebViewController: WKNavigationDelegate {
                 dict[key] = value
                 return dict
             })
-
-        if let token = params["access_token"] {
-            Session.instance.token = token
+        
+        guard let token = params["access_token"] else {
+            let alert = UIAlertController(
+                title: "Ошибка получения токена",
+                message: "Повторите попытку авторизации",
+                preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Повторить", style: UIAlertAction.Style.default))
+            present(alert, animated: true, completion: nil)
+            
+            loadLoginPage()
+            return
         }
+        Session.instance.token = token
+        
         if let userId = params["user_id"] {
             if let userIdInt = Int(userId) {
                 Session.instance.userId = userIdInt
