@@ -21,6 +21,7 @@ class Networker {
     
     static let shared = Networker()
     private let urlSesstion: URLSession
+    let jsonDecoder = JSONDecoder()
     
     private func createUrl(method: Method, methodParams: [String: String]) -> URL? {
         var urlComponents = URLComponents()
@@ -39,7 +40,10 @@ class Networker {
         return urlComponents.url
     }
     
-    private func sendGetRequest(url: URL) {
+    private func sendGetRequest<TypeOfResponse: Decodable>(
+        url: URL,
+        type: TypeOfResponse.Type,
+        completion: @escaping (TypeOfResponse?)->()) {
     
         urlSesstion.dataTask(with: url) { data, _, _ in
             
@@ -47,27 +51,44 @@ class Networker {
                 return
             }
             
-            print(String(data: data, encoding: .utf8))
+            let resultModel = try? self.jsonDecoder.decode(VKResponse<TypeOfResponse>.self, from: data)
+            completion(resultModel?.response)
+            
         }.resume()
     }
     
     func getFriends() {
-        guard let url = createUrl(method: .getFriends, methodParams: [:]) else { return }
-        sendGetRequest(url: url)
+        let urlParams = ["fields": "nickname,photo_50"]
+        guard let url = createUrl(method: .getFriends, methodParams: urlParams) else { return }
+
+        sendGetRequest(url: url, type: VKArrayResult<VKFriend>.self) { response in
+            guard let friends = response?.items else { return }
+            VKUserData.instance.friends = friends
+        }
     }
     
     func getPhotos(ownerId: String) {
         guard let url = createUrl(method: .getPhotos, methodParams: ["owner_id": ownerId]) else { return }
-        sendGetRequest(url: url)
+        
+        sendGetRequest(url: url, type: VKArrayResult<VKPhoto>.self) { response in
+            guard let photos = response?.items else { return }
+            VKUserData.instance.photos = photos
+        }
     }
     
     func getGroups() {
-        guard let url = createUrl(method: .getGroups, methodParams: [:]) else { return }
-        sendGetRequest(url: url)
+        let urlParams = ["extended": "1"]
+        guard let url = createUrl(method: .getGroups, methodParams: urlParams) else { return }
+        sendGetRequest(url: url, type: VKArrayResult<VKGroup>.self) { response in
+            guard let groups = response?.items else { return }
+            VKUserData.instance.groups = groups
+        }
     }
     
     func searchGoups(query: String) {
         guard let url = createUrl(method: .searchGroups, methodParams: ["q": query]) else { return }
-        sendGetRequest(url: url)
+        sendGetRequest(url: url, type: VKArrayResult<VKGroup>.self) { response in
+            print(response)
+        }
     }
 }

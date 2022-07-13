@@ -38,6 +38,12 @@
 		E9D4C3472850B87C00825C89 /* AvatarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9D4C3462850B87C00825C89 /* AvatarView.xib */; };
 		E9D4C36D28510CAE00825C89 /* LikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D4C36C28510CAE00825C89 /* LikeView.swift */; };
 		E9D4C36F28510CBB00825C89 /* LikeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9D4C36E28510CBB00825C89 /* LikeView.xib */; };
+		E9E38D67287F0075006D8314 /* VKFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E38D66287F0075006D8314 /* VKFriend.swift */; };
+		E9E38D69287F02D4006D8314 /* VKResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E38D68287F02D4006D8314 /* VKResponse.swift */; };
+		E9E38D6B287F33C1006D8314 /* VKUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E38D6A287F33C1006D8314 /* VKUserData.swift */; };
+		E9E38D6D287F351A006D8314 /* VKPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E38D6C287F351A006D8314 /* VKPhoto.swift */; };
+		E9E38D6F287F3721006D8314 /* VKPhotoSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E38D6E287F3721006D8314 /* VKPhotoSize.swift */; };
+		E9E38D71287F3B79006D8314 /* VKGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E38D70287F3B79006D8314 /* VKGroup.swift */; };
 		E9E6DA662875BA44005E3E8B /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E6DA652875BA44005E3E8B /* Session.swift */; };
 		E9F3AF69284DEE8A003710B3 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F3AF67284DEE8A003710B3 /* PhotoCollectionViewCell.swift */; };
 		E9F3AF6A284DEE8A003710B3 /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9F3AF68284DEE8A003710B3 /* PhotoCollectionViewCell.xib */; };
@@ -77,6 +83,12 @@
 		E9D4C3462850B87C00825C89 /* AvatarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvatarView.xib; sourceTree = "<group>"; };
 		E9D4C36C28510CAE00825C89 /* LikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeView.swift; sourceTree = "<group>"; };
 		E9D4C36E28510CBB00825C89 /* LikeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LikeView.xib; sourceTree = "<group>"; };
+		E9E38D66287F0075006D8314 /* VKFriend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKFriend.swift; sourceTree = "<group>"; };
+		E9E38D68287F02D4006D8314 /* VKResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKResponse.swift; sourceTree = "<group>"; };
+		E9E38D6A287F33C1006D8314 /* VKUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKUserData.swift; sourceTree = "<group>"; };
+		E9E38D6C287F351A006D8314 /* VKPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKPhoto.swift; sourceTree = "<group>"; };
+		E9E38D6E287F3721006D8314 /* VKPhotoSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKPhotoSize.swift; sourceTree = "<group>"; };
+		E9E38D70287F3B79006D8314 /* VKGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKGroup.swift; sourceTree = "<group>"; };
 		E9E6DA652875BA44005E3E8B /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		E9F3AF67284DEE8A003710B3 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		E9F3AF68284DEE8A003710B3 /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -175,6 +187,7 @@
 				E967BDE5284CA60200B6C2B2 /* Protocols */,
 				E967BDE3284C9F7100B6C2B2 /* Resources.swift */,
 				E9CA75E42847E08D00C6DE45 /* UserData.swift */,
+				E9E38D6A287F33C1006D8314 /* VKUserData.swift */,
 				E9E6DA652875BA44005E3E8B /* Session.swift */,
 				E975C48D287B4406000C55F6 /* Networker.swift */,
 				E9CA75DC2847B04F00C6DE45 /* Models */,
@@ -201,7 +214,12 @@
 			isa = PBXGroup;
 			children = (
 				E9CA75E22847E02500C6DE45 /* Friend.swift */,
+				E9E38D68287F02D4006D8314 /* VKResponse.swift */,
 				E9B1120C286D6AAB001D5CCB /* Group.swift */,
+				E9E38D66287F0075006D8314 /* VKFriend.swift */,
+				E9E38D6C287F351A006D8314 /* VKPhoto.swift */,
+				E9E38D70287F3B79006D8314 /* VKGroup.swift */,
+				E9E38D6E287F3721006D8314 /* VKPhotoSize.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -348,10 +366,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E967BDF5284D1C9C00B6C2B2 /* AllDataDelegate.swift in Sources */,
+				E9E38D6B287F33C1006D8314 /* VKUserData.swift in Sources */,
 				E9D4C3442850B85700825C89 /* AvatarView.swift in Sources */,
 				E9F3AF69284DEE8A003710B3 /* PhotoCollectionViewCell.swift in Sources */,
 				E96B91622845650200960540 /* MyGroupsViewController.swift in Sources */,
+				E9E38D6D287F351A006D8314 /* VKPhoto.swift in Sources */,
 				E967BDF3284D0CB500B6C2B2 /* DataManagerProtocol.swift in Sources */,
+				E9E38D67287F0075006D8314 /* VKFriend.swift in Sources */,
 				E975C48E287B4406000C55F6 /* Networker.swift in Sources */,
 				E9CA75DA28465A9C00C6DE45 /* UITextFieldExtension.swift in Sources */,
 				E967BDF7284D205C00B6C2B2 /* GroupViewController.swift in Sources */,
@@ -361,10 +382,13 @@
 				E96B91642845654900960540 /* AllGroupsViewController.swift in Sources */,
 				E96F4CF82837DC89008396D2 /* LoginViewController.swift in Sources */,
 				E96B91682845679600960540 /* FriendViewController.swift in Sources */,
+				E9E38D69287F02D4006D8314 /* VKResponse.swift in Sources */,
 				E9D4C36D28510CAE00825C89 /* LikeView.swift in Sources */,
 				E967BDE7284CA61D00B6C2B2 /* UserDataProtocol.swift in Sources */,
 				E9CA75E02847B0A000C6DE45 /* CustomTableViewCell.swift in Sources */,
 				E9CA75E52847E08D00C6DE45 /* UserData.swift in Sources */,
+				E9E38D71287F3B79006D8314 /* VKGroup.swift in Sources */,
+				E9E38D6F287F3721006D8314 /* VKPhotoSize.swift in Sources */,
 				E967BDE4284C9F7100B6C2B2 /* Resources.swift in Sources */,
 				E9B37411284DF8A700800A42 /* PhotoViewerUIViewController.swift in Sources */,
 				E96B91662845677200960540 /* MyFiendsViewController.swift in Sources */,
