@@ -12,7 +12,7 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var avatarView: AvatarView!
-//    
+    
     var id: Int? = nil
     var data: CommonUserData?
     

@@ -11,12 +11,13 @@ public struct Resouces {
     struct Segue {
         static let fromLoginToMainBarController = "fromLoginToMainBarController"
         static let fromMyFriendsToFindFriends = "fromMyFriendsToFindFriends"
-        static let fromFriendListToFriend = "fromFriendListToFriend"
         static let fromMyGroupsToAllGroups = "fromMyGroupsToAllGroups"
         static let fromGroupListToGroup = "fromGroupListToGroup"
         static let fromFriendToPhoto = "fromFriendToPhoto"
         static let fromGroupMembersToFriend = "fromGroupMembersToFriend"
         static let fromVKLoginToMainBarController = "fromVKLoginToMainBarController"
+        
+        static let fromMyFriendsToFriend = "fromMyFriendsToFriend"
     }
     
     struct Notification {
@@ -27,11 +28,13 @@ public struct Resouces {
     struct CellIdentifiers {
         static let customTableView = "customTableViewCellIdentifier"
         static let photoCollectionView = "photoCollectionViewCellIdentifier"
+        static let friendTableView = "friendTableViewCellIdentifier"
     }
     
     struct Cell {
         static let customTableViewCell = "CustomTableViewCell"
         static let photoCollectionViewCell = "PhotoCollectionViewCell"
+        static let friendTableViewCell = "FriendTableViewCell"
     }
     
     struct VKAPI {

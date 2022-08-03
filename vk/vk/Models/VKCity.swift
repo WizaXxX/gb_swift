@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct VKCity: Decodable {
+    var id: Int
+    var title: String
+}

@@ -11,20 +11,26 @@ struct VKFriend: Decodable {
     var id: Int
     var firstName: String
     var lastName: String
-    var nickname: String
-    var canAccessClosed: Bool
+    var nickname: String?
     var sSizePhoto: String
+    var mSizePhoto: String
+    var xSizePhoto: String
     var trackCode: String
-    var isClosed: Bool
+    var sex: Int
+    var city: VKCity?
+    var lastSeen: VKLastSeen?
     
     enum CodingKeys: String, CodingKey {
         case id
         case firstName = "first_name"
         case lastName = "last_name"
         case nickname
-        case canAccessClosed = "can_access_closed"
         case sSizePhoto = "photo_50"
+        case mSizePhoto = "photo_100"
+        case xSizePhoto = "photo_200_orig"
         case trackCode = "track_code"
-        case isClosed = "is_closed"
+        case sex
+        case city
+        case lastSeen = "last_seen"
     }
 }

@@ -205,6 +205,89 @@
             </objects>
             <point key="canvasLocation" x="-1235" y="403"/>
         </scene>
+        <!--Nickname-->
+        <scene sceneID="DPm-TO-MRs">
+            <objects>
+                <viewController id="KGc-hL-gdJ" customClass="VKFriendViewController" customModule="vk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nsb-IY-Wm6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pc4-SW-XF4" customClass="AvatarView" customModule="vk" customModuleProvider="target">
+                                <rect key="frame" x="15" y="103" width="99" height="99"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="pc4-SW-XF4" secondAttribute="height" multiplier="1:1" id="pDF-p0-THa"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ka5-V6-5SY">
+                                <rect key="frame" x="129" y="102" width="270" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="face.smiling.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="DNg-vp-AIs">
+                                <rect key="frame" x="129" y="133.5" width="20" height="19"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last seen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ihn-Rv-Sxf">
+                                <rect key="frame" x="129" y="163" width="270" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9GT-ux-vUq">
+                                <rect key="frame" x="5" y="217" width="404" height="591"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZVq-jn-OZ4">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="pHx-bH-KvH">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="B1g-z2-UeB">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6mT-mr-JcC"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pc4-SW-XF4" firstAttribute="top" secondItem="6mT-mr-JcC" secondAttribute="top" constant="15" id="2FD-oi-9LL"/>
+                            <constraint firstItem="9GT-ux-vUq" firstAttribute="top" secondItem="pc4-SW-XF4" secondAttribute="bottom" constant="15" id="3FW-Hx-4Bs"/>
+                            <constraint firstItem="9GT-ux-vUq" firstAttribute="leading" secondItem="6mT-mr-JcC" secondAttribute="leading" constant="5" id="7no-am-nr2"/>
+                            <constraint firstItem="DNg-vp-AIs" firstAttribute="top" secondItem="Ka5-V6-5SY" secondAttribute="bottom" constant="10" id="846-Wi-Kzs"/>
+                            <constraint firstItem="DNg-vp-AIs" firstAttribute="leading" secondItem="pc4-SW-XF4" secondAttribute="trailing" constant="15" id="Awc-I3-exd"/>
+                            <constraint firstItem="6mT-mr-JcC" firstAttribute="bottom" secondItem="9GT-ux-vUq" secondAttribute="bottom" constant="5" id="Gg2-kc-nmE"/>
+                            <constraint firstItem="6mT-mr-JcC" firstAttribute="trailing" secondItem="Ka5-V6-5SY" secondAttribute="trailing" constant="15" id="NSJ-Hw-YNF"/>
+                            <constraint firstItem="Ihn-Rv-Sxf" firstAttribute="top" secondItem="DNg-vp-AIs" secondAttribute="bottom" constant="10" id="Ogy-Py-00g"/>
+                            <constraint firstItem="Ka5-V6-5SY" firstAttribute="centerY" secondItem="pc4-SW-XF4" secondAttribute="centerY" constant="-40" id="RQJ-KP-ZvZ"/>
+                            <constraint firstItem="6mT-mr-JcC" firstAttribute="trailing" secondItem="Ihn-Rv-Sxf" secondAttribute="trailing" constant="15" id="SPM-m0-1fP"/>
+                            <constraint firstItem="6mT-mr-JcC" firstAttribute="trailing" secondItem="pc4-SW-XF4" secondAttribute="trailing" constant="300" id="btJ-dq-J6j"/>
+                            <constraint firstItem="Ihn-Rv-Sxf" firstAttribute="leading" secondItem="pc4-SW-XF4" secondAttribute="trailing" constant="15" id="dKN-tC-R5S"/>
+                            <constraint firstItem="pc4-SW-XF4" firstAttribute="leading" secondItem="6mT-mr-JcC" secondAttribute="leading" constant="15" id="h9w-Kh-kJa"/>
+                            <constraint firstItem="Ka5-V6-5SY" firstAttribute="leading" secondItem="pc4-SW-XF4" secondAttribute="trailing" constant="15" id="n7a-As-kfs"/>
+                            <constraint firstItem="6mT-mr-JcC" firstAttribute="trailing" secondItem="9GT-ux-vUq" secondAttribute="trailing" constant="5" id="nek-eD-RUV"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Nickname" id="SbQ-Y9-gKr"/>
+                    <connections>
+                        <outlet property="avatarView" destination="pc4-SW-XF4" id="yFa-jV-yUA"/>
+                        <outlet property="collectionView" destination="9GT-ux-vUq" id="ywy-Ya-eRj"/>
+                        <outlet property="lastSeen" destination="Ihn-Rv-Sxf" id="vin-cx-zI1"/>
+                        <outlet property="name" destination="Ka5-V6-5SY" id="4yU-Qx-s7V"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HrL-PI-TB4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2688" y="-1256"/>
+        </scene>
         <!--Мои друзья-->
         <scene sceneID="Wa6-Bi-83k">
             <objects>
@@ -237,7 +320,7 @@
                     <connections>
                         <outlet property="tableView" destination="9Hw-V3-XyT" id="c2J-ah-1lT"/>
                         <segue destination="kxQ-DS-BGu" kind="show" identifier="fromMyFriendsToFindFriends" id="HvX-wY-csR"/>
-                        <segue destination="qx2-tN-erL" kind="show" identifier="fromFriendListToFriend" id="lge-wH-y4T"/>
+                        <segue destination="KGc-hL-gdJ" kind="show" identifier="fromMyFriendsToFriend" id="u9Z-ZE-cEz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kpa-ka-0dC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -269,7 +352,6 @@
                     <navigationItem key="navigationItem" title="Найти друга" id="eMP-mp-6tC"/>
                     <connections>
                         <outlet property="tableView" destination="YxU-rl-A8d" id="uV4-pa-lGZ"/>
-                        <segue destination="qx2-tN-erL" kind="show" identifier="fromFriendListToFriend" id="e4f-gh-GRk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="smk-E3-4DF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -382,7 +464,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dgx-EN-nKa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2389.8550724637685" y="-1252.2321428571429"/>
+            <point key="canvasLocation" x="3435" y="1102"/>
         </scene>
         <!--Photo ViewerUI View Controller-->
         <scene sceneID="6zM-Jb-p4v">
@@ -412,7 +494,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uWY-NE-7O7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3332" y="-1251"/>
+            <point key="canvasLocation" x="5597" y="-182"/>
         </scene>
         <!--Мои группы-->
         <scene sceneID="qjU-fV-SO5">
@@ -656,18 +738,18 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ofg-OR-InL"/>
+        <segue reference="dPh-KT-WmS"/>
         <segue reference="4pm-wK-zbZ"/>
-        <segue reference="lge-wH-y4T"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="eye.slash.circle" catalog="system" width="32" height="32"/>
-        <image name="folder" catalog="system" width="32" height="32"/>
-        <image name="folder.fill" catalog="system" width="32" height="32"/>
-        <image name="paperplane.circle.fill" catalog="system" width="32" height="32"/>
-        <image name="person" catalog="system" width="32" height="32"/>
-        <image name="person.fill" catalog="system" width="32" height="32"/>
-        <image name="plus" catalog="system" width="32" height="32"/>
+        <image name="eye.slash.circle" catalog="system" width="128" height="121"/>
+        <image name="face.smiling.fill" catalog="system" width="128" height="121"/>
+        <image name="folder" catalog="system" width="128" height="97"/>
+        <image name="folder.fill" catalog="system" width="128" height="97"/>
+        <image name="paperplane.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="person" catalog="system" width="128" height="117"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

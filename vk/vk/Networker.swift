@@ -51,28 +51,34 @@ class Networker {
                 return
             }
             
-            let resultModel = try? self.jsonDecoder.decode(VKResponse<TypeOfResponse>.self, from: data)
-            completion(resultModel?.response)
+            do {
+                let resultModel = try self.jsonDecoder.decode(VKResponse<TypeOfResponse>.self, from: data)
+                completion(resultModel.response)
+            }
+            catch {
+                print(error)
+            }
             
         }.resume()
     }
     
-    func getFriends() {
-        let urlParams = ["fields": "nickname,photo_50"]
+    func getFriends(completion: @escaping () -> Void) {
+        let urlParams = ["fields": "nickname,photo_50,sex,city,photo_200_orig,photo_100"]
         guard let url = createUrl(method: .getFriends, methodParams: urlParams) else { return }
 
         sendGetRequest(url: url, type: VKArrayResult<VKFriend>.self) { response in
             guard let friends = response?.items else { return }
             VKUserData.instance.friends = friends
+            completion()
         }
     }
     
-    func getPhotos(ownerId: String) {
-        guard let url = createUrl(method: .getPhotos, methodParams: ["owner_id": ownerId]) else { return }
+    func getPhotos(ownerId: Int, complition: @escaping (_ photos: [VKPhoto]) -> Void) {
+        guard let url = createUrl(method: .getPhotos, methodParams: ["owner_id": String(ownerId)]) else { return }
         
         sendGetRequest(url: url, type: VKArrayResult<VKPhoto>.self) { response in
             guard let photos = response?.items else { return }
-            VKUserData.instance.photos = photos
+            complition(photos)
         }
     }
     
@@ -88,7 +94,7 @@ class Networker {
     func searchGoups(query: String) {
         guard let url = createUrl(method: .searchGroups, methodParams: ["q": query]) else { return }
         sendGetRequest(url: url, type: VKArrayResult<VKGroup>.self) { response in
-            print(response)
+//            print(response)
         }
     }
 }

@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct VKLastSeen: Decodable {
+    var time: Date
+    var platform: Int
+}

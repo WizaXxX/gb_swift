@@ -31,7 +31,7 @@ extension Friend: CommonUserData {
     }
     
     func segueFromItemListToItem() -> String? {
-        return Resouces.Segue.fromFriendListToFriend
+        return ""
     }
     
     func prepareSegue(segue: UIStoryboardSegue) {
