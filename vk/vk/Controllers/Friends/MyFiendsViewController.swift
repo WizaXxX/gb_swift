@@ -20,10 +20,6 @@ class MyFiendsViewController: UIViewController {
             }
         })
         
-//        Networker.shared.getPhotos(ownerId: String(Session.instance.userId))
-//        Networker.shared.getGroups()
-//        Networker.shared.searchGoups(query: "MDK")
-        
         tableView.register(
             UINib(nibName: Resouces.Cell.friendTableViewCell, bundle: nil),
             forCellReuseIdentifier: Resouces.CellIdentifiers.friendTableView)
@@ -31,25 +27,8 @@ class MyFiendsViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(friendAdded(_:)),
-            name: Notification.Name(Resouces.Notification.addFriend),
-            object: nil)
     }
-        
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
-    @objc func friendAdded(_ notification: Notification) {
-        tableView.reloadData()
-    }
-    
-    @IBAction func pressAddFriends(_ sender: Any) {
-        performSegue(withIdentifier: Resouces.Segue.fromMyFriendsToFindFriends, sender: nil)
-    }
-    
+            
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
@@ -61,7 +40,7 @@ class MyFiendsViewController: UIViewController {
             return
         }
         
-        let view = segue.destination as! VKFriendViewController
+        let view = segue.destination as! FriendViewController
         view.configure(friend: friend)
         
     }
@@ -70,7 +49,7 @@ class MyFiendsViewController: UIViewController {
 extension MyFiendsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return VKUserData.instance.friends.count
+        return UserData.instance.friends.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -78,7 +57,7 @@ extension MyFiendsViewController: UITableViewDataSource {
             withIdentifier: Resouces.CellIdentifiers.friendTableView,
             for: indexPath) as! FriendTableViewCell
         
-        let data = VKUserData.instance.friends[indexPath.row]
+        let data = UserData.instance.friends[indexPath.row]
         cell.configure(from: data)
         
         return cell
@@ -93,23 +72,4 @@ extension MyFiendsViewController: UITableViewDelegate {
 
         performSegue(withIdentifier: Resouces.Segue.fromMyFriendsToFriend, sender: data)
     }
-        
-   
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        guard editingStyle == .delete else {
-//            return
-//        }
-//
-//        guard let cell = tableView.cellForRow(at: indexPath) as? CustomTableViewCell else {
-//            return
-//        }
-//
-//        guard let data = cell.data else {
-//            return
-//        }
-//
-//        manager.moveFromMyDataToAllData(data: data)
-//        tableView.deleteRows(at: [indexPath], with: .fade)
-//    }
-    
 }

@@ -19,6 +19,11 @@ class WKWebViewController: UIViewController {
         loadLoginPage()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        performSegue(withIdentifier: Resouces.Segue.fromVKLoginToMainBarController, sender: nil)
+    }
+    
     func loadLoginPage() {
        
         var urlComponents = URLComponents(string: "https://oauth.vk.com/authorize")

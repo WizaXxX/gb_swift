@@ -27,20 +27,7 @@ class FriendTableViewCell: UITableViewCell {
         name.text = "\(friend.firstName) \(friend.lastName)"
         city.text = friend.city?.title
         
-        guard let url = URL(string: friend.sSizePhoto) else { return }
-        guard let imageData = try? Data(contentsOf: url) else { return }
-        avatarView.imageView.image = UIImage(data: imageData)
-        avatarView.clipsToBounds = false
-        avatarView.layer.cornerRadius = 30
-        avatarView.layer.shadowColor = UIColor.black.cgColor
-        avatarView.layer.shadowOffset = CGSize(width: 5, height: 5)
-        avatarView.layer.shadowRadius = 10
-        avatarView.layer.shadowOpacity = 0.7
-        avatarView.backgroundColor = .white
-
-        avatarView.imageView.clipsToBounds = true
-        avatarView.imageView.layer.cornerRadius = avatarView.layer.cornerRadius
-        
+        avatarView.loadAndSetImage(from: friend.sSizePhoto, cornerRadius: 30, shadowRadius: 10)        
     }
     
 }

@@ -41,5 +41,23 @@ class AvatarView: UIView {
         xibView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.addSubview(xibView)
     }
+    
+    func loadAndSetImage(from urlImage: String, cornerRadius: Int, shadowRadius: Int) {
+        guard let url = URL(string: urlImage) else { return }
+        guard let imageData = try? Data(contentsOf: url) else { return }
+        
+        imageView.image = UIImage(data: imageData)
+        clipsToBounds = false
+        layer.cornerRadius = CGFloat(cornerRadius)
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 5, height: 5)
+        layer.shadowRadius = CGFloat(shadowRadius)
+        layer.shadowOpacity = 0.7
+        backgroundColor = .white
+
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = layer.cornerRadius
+        
+    }
 
 }

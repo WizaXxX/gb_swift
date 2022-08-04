@@ -15,6 +15,9 @@ struct VKGroup: Decodable {
     var sSizePhoto: String
     var mSizePhoto: String
     var lSizePhoto: String
+    var membersCount: Int
+    var description: String
+    var status: String
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -24,6 +27,8 @@ struct VKGroup: Decodable {
         case sSizePhoto = "photo_50"
         case mSizePhoto = "photo_100"
         case lSizePhoto = "photo_200"
+        case membersCount = "members_count"
+        case description, status
         
     }
 }
