@@ -13,13 +13,14 @@ class MyFiendsViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        Networker.shared.getFriends(completion: { [weak self] in
-            DispatchQueue.main.async {
+
+        Task {
+            await Gate.shared.getFriends()
+            DispatchQueue.main.async { [weak self] in
                 self?.tableView.reloadData()
             }
-        })
-        
+        }
+                
         tableView.register(
             UINib(nibName: Resouces.Cell.friendTableViewCell, bundle: nil),
             forCellReuseIdentifier: Resouces.CellIdentifiers.friendTableView)
@@ -36,7 +37,7 @@ class MyFiendsViewController: UIViewController {
             return
         }
         
-        guard let friend = sender as? VKFriend else {
+        guard let friend = sender as? Friend else {
             return
         }
         

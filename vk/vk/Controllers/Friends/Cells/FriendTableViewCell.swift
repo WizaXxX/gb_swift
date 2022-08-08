@@ -13,7 +13,7 @@ class FriendTableViewCell: UITableViewCell {
     @IBOutlet weak var city: UILabel!
     @IBOutlet weak var avatarView: AvatarView!
     
-    var friend: VKFriend?
+    var friend: Friend?
     
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -22,10 +22,10 @@ class FriendTableViewCell: UITableViewCell {
         city.text = nil
     }
             
-    func configure(from friend: VKFriend) {
+    func configure(from friend: Friend) {
         self.friend = friend
         name.text = "\(friend.firstName) \(friend.lastName)"
-        city.text = friend.city?.title
+        city.text = friend.city.title
         
         avatarView.loadAndSetImage(from: friend.sSizePhoto, cornerRadius: 30, shadowRadius: 10)        
     }

@@ -40,7 +40,7 @@ class Networker {
         
         return urlComponents.url
     }
-    
+        
     private func sendGetRequest<TypeOfResponse: Decodable>(
         url: URL,
         type: TypeOfResponse.Type,
@@ -63,16 +63,33 @@ class Networker {
         }.resume()
     }
     
-    func getFriends(completion: @escaping () -> Void) {
-        let urlParams = ["fields": "nickname,photo_50,sex,last_seen,city,photo_200_orig,photo_100"]
-        guard let url = createUrl(method: .getFriends, methodParams: urlParams) else { return }
-
-        sendGetRequest(url: url, type: VKArrayResult<VKFriend>.self) { response in
-            guard let friends = response?.items else { return }
-            UserData.instance.friends = friends
-            completion()
-        }
+    private func sendGetRequestAsync<TypeOfResponse: Decodable>(
+        url: URL) async throws -> TypeOfResponse {
+    
+            let (data, _) = try await urlSesstion.data(from: url)
+            let resultModel = try jsonDecoder.decode(VKResponse<TypeOfResponse>.self, from: data)
+            return resultModel.response
+            
     }
+    
+    func getFriendAsync() async throws -> [VKFriend]? {
+        let urlParams = ["fields": "nickname,photo_50,sex,last_seen,city,photo_200_orig,photo_100"]
+        guard let url = createUrl(method: .getFriends, methodParams: urlParams) else { return nil }
+        
+        let result: VKArrayResult<VKFriend> = try await sendGetRequestAsync(url: url)
+        return result.items
+    }
+    
+    func getFriends(completion: @escaping () -> Void) {
+            let urlParams = ["fields": "nickname,photo_50,sex,last_seen,city,photo_200_orig,photo_100"]
+            guard let url = createUrl(method: .getFriends, methodParams: urlParams) else { return }
+
+            sendGetRequest(url: url, type: VKArrayResult<VKFriend>.self) { response in
+//                guard let friends = response?.items else { return }
+//                UserData.instance.friends = friends
+//                completion()
+            }
+        }
     
     func getPhotos(ownerId: Int, completion: @escaping (_ photos: [VKPhoto]) -> Void) {
         let urlParams = ["owner_id": String(ownerId)]
@@ -84,6 +101,18 @@ class Networker {
         }
     }
     
+    func getGroupsAsync(ownerId: Int) async throws -> [VKGroup]? {
+        let urlParams = [
+            "extended": "1",
+            "user_id": String(ownerId),
+            "fields": "members_count,description, status"
+        ]
+        guard let url = createUrl(method: .getGroups, methodParams: urlParams) else { return nil }
+        
+        let result: VKArrayResult<VKGroup> = try await sendGetRequestAsync(url: url)
+        return result.items
+    }
+    
     func getGroups(ownerId: Int, completion: @escaping () -> Void) {
         let urlParams = [
             "extended": "1",
@@ -92,9 +121,9 @@ class Networker {
         ]
         guard let url = createUrl(method: .getGroups, methodParams: urlParams) else { return }
         sendGetRequest(url: url, type: VKArrayResult<VKGroup>.self) { response in
-            guard let groups = response?.items else { return }
-            UserData.instance.groups = groups
-            completion()
+//            guard let groups = response?.items else { return }
+//            UserData.instance.groups = groups
+//            completion()
         }
     }
     

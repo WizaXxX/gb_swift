@@ -13,7 +13,7 @@ class GroupTableViewCell: UITableViewCell {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var countOfMembers: UILabel!
     
-    var group: VKGroup?
+    var group: Group?
     
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -22,7 +22,7 @@ class GroupTableViewCell: UITableViewCell {
         countOfMembers.text = nil
     }
             
-    func configure(from group: VKGroup) {
+    func configure(from group: Group) {
         self.group = group
         
         name.text = "\(group.name)"

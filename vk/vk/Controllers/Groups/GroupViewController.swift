@@ -14,7 +14,7 @@ class GroupViewController: UIViewController {
     @IBOutlet weak var desc: UILabel!
     @IBOutlet weak var fullDesc: UITextView!
     
-    var group: VKGroup?
+    var group: Group?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,7 @@ class GroupViewController: UIViewController {
         avatarView.loadAndSetImage(from: currentGroup.mSizePhoto, cornerRadius: 50, shadowRadius: 5)
     }
     
-    func configure(group: VKGroup) {
+    func configure(group: Group) {
         self.group = group
     }
 }

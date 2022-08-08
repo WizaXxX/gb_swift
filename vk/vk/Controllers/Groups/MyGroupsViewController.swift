@@ -14,11 +14,12 @@ class MyGroupsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Networker.shared.getGroups(ownerId: Session.instance.userId, completion: { [weak self] in
-            DispatchQueue.main.async {
+        Task {
+            await Gate.shared.getGroups()
+            DispatchQueue.main.async { [weak self] in
                 self?.tableView.reloadData()
             }
-        })
+        }
         
         tableView.register(
             UINib(nibName: Resouces.Cell.groupTableViewCell, bundle: nil),
@@ -36,7 +37,7 @@ class MyGroupsViewController: UIViewController {
             return
         }
         
-        guard let group = sender as? VKGroup else {
+        guard let group = sender as? Group else {
             return
         }
         

@@ -14,7 +14,7 @@ class FriendViewController: UIViewController {
     @IBOutlet weak var lastSeen: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var friend: VKFriend?
+    var friend: Friend?
     var photos: [VKPhoto] = [VKPhoto]()
     
     override func viewDidLoad() {
@@ -24,7 +24,7 @@ class FriendViewController: UIViewController {
         title = currentFriend.nickname
         name.text = "\(currentFriend.firstName) \(currentFriend.lastName)"
         
-        if let date = currentFriend.lastSeen?.time {
+        if let date = currentFriend.lastSeen {
             lastSeen.text = "last seen \(String(describing: date.formatted()))"
         }
         
@@ -39,7 +39,7 @@ class FriendViewController: UIViewController {
         loadPhotos()
     }
     
-    func configure(friend: VKFriend) {
+    func configure(friend: Friend) {
         self.friend = friend
     }
         

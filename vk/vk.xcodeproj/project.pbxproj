@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		E65AE5797D2A536824382EB3 /* Pods_vk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD48910594FE4FAF0F1FB96D /* Pods_vk.framework */; };
 		E9186E1F287C4D6700B81856 /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9186E1E287C4D6700B81856 /* WKWebViewController.swift */; };
+		E91E56CE28A173BB0085D7EC /* RealmFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91E56CD28A173BB0085D7EC /* RealmFriend.swift */; };
+		E91E56D128A1749E0085D7EC /* RealmCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91E56D028A1749E0085D7EC /* RealmCity.swift */; };
+		E91E56D728A1758F0085D7EC /* RealmGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91E56D628A1758F0085D7EC /* RealmGroup.swift */; };
+		E91E56D928A176480085D7EC /* Gate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91E56D828A176480085D7EC /* Gate.swift */; };
+		E91E56DB28A17B5B0085D7EC /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91E56DA28A17B5B0085D7EC /* Friend.swift */; };
+		E91E56DD28A17BC80085D7EC /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91E56DC28A17BC80085D7EC /* City.swift */; };
+		E91E56DF28A1B5AD0085D7EC /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91E56DE28A1B5AD0085D7EC /* Group.swift */; };
 		E967BDE4284C9F7100B6C2B2 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = E967BDE3284C9F7100B6C2B2 /* Resources.swift */; };
 		E96B91622845650200960540 /* MyGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96B91612845650200960540 /* MyGroupsViewController.swift */; };
 		E96B91662845677200960540 /* MyFiendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96B91652845677200960540 /* MyFiendsViewController.swift */; };
@@ -42,6 +49,13 @@
 /* Begin PBXFileReference section */
 		DCA0EBAEFF917C5553CB4490 /* Pods-vk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vk.release.xcconfig"; path = "Target Support Files/Pods-vk/Pods-vk.release.xcconfig"; sourceTree = "<group>"; };
 		E9186E1E287C4D6700B81856 /* WKWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
+		E91E56CD28A173BB0085D7EC /* RealmFriend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmFriend.swift; sourceTree = "<group>"; };
+		E91E56D028A1749E0085D7EC /* RealmCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCity.swift; sourceTree = "<group>"; };
+		E91E56D628A1758F0085D7EC /* RealmGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmGroup.swift; sourceTree = "<group>"; };
+		E91E56D828A176480085D7EC /* Gate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gate.swift; sourceTree = "<group>"; };
+		E91E56DA28A17B5B0085D7EC /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		E91E56DC28A17BC80085D7EC /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		E91E56DE28A1B5AD0085D7EC /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		E967BDE3284C9F7100B6C2B2 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		E96B91612845650200960540 /* MyGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsViewController.swift; sourceTree = "<group>"; };
 		E96B91652845677200960540 /* MyFiendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFiendsViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +119,36 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E91E56CA28A173460085D7EC /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				E9E38D66287F0075006D8314 /* VKFriend.swift */,
+				E91E56CD28A173BB0085D7EC /* RealmFriend.swift */,
+				E91E56DA28A17B5B0085D7EC /* Friend.swift */,
+			);
+			path = Friends;
+			sourceTree = "<group>";
+		};
+		E91E56CF28A1748A0085D7EC /* City */ = {
+			isa = PBXGroup;
+			children = (
+				E99361D8289B0074001C671D /* VKCity.swift */,
+				E91E56D028A1749E0085D7EC /* RealmCity.swift */,
+				E91E56DC28A17BC80085D7EC /* City.swift */,
+			);
+			path = City;
+			sourceTree = "<group>";
+		};
+		E91E56D528A175790085D7EC /* Groups */ = {
+			isa = PBXGroup;
+			children = (
+				E9E38D70287F3B79006D8314 /* VKGroup.swift */,
+				E91E56D628A1758F0085D7EC /* RealmGroup.swift */,
+				E91E56DE28A1B5AD0085D7EC /* Group.swift */,
+			);
+			path = Groups;
+			sourceTree = "<group>";
+		};
 		E967BDE2284C9F4000B6C2B2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +194,7 @@
 				E9E38D6A287F33C1006D8314 /* UserData.swift */,
 				E9E6DA652875BA44005E3E8B /* Session.swift */,
 				E975C48D287B4406000C55F6 /* Networker.swift */,
+				E91E56D828A176480085D7EC /* Gate.swift */,
 				E9CA75DC2847B04F00C6DE45 /* Models */,
 				E9CA75DB2847B03400C6DE45 /* System */,
 				E96B91602845557E00960540 /* Controllers */,
@@ -210,12 +255,12 @@
 		E9CA75DC2847B04F00C6DE45 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E9E38D68287F02D4006D8314 /* VKResponse.swift */,
-				E99361D8289B0074001C671D /* VKCity.swift */,
-				E9E38D66287F0075006D8314 /* VKFriend.swift */,
+				E91E56D528A175790085D7EC /* Groups */,
+				E91E56CF28A1748A0085D7EC /* City */,
+				E91E56CA28A173460085D7EC /* Friends */,
 				E99361DA289B19BA001C671D /* VKLastSeen.swift */,
+				E9E38D68287F02D4006D8314 /* VKResponse.swift */,
 				E9E38D6C287F351A006D8314 /* VKPhoto.swift */,
-				E9E38D70287F3B79006D8314 /* VKGroup.swift */,
 				E9E38D6E287F3721006D8314 /* VKPhotoSize.swift */,
 			);
 			path = Models;
@@ -357,16 +402,23 @@
 				E9F3AF69284DEE8A003710B3 /* PhotoCollectionViewCell.swift in Sources */,
 				E96B91622845650200960540 /* MyGroupsViewController.swift in Sources */,
 				E9E38D6D287F351A006D8314 /* VKPhoto.swift in Sources */,
+				E91E56DD28A17BC80085D7EC /* City.swift in Sources */,
+				E91E56CE28A173BB0085D7EC /* RealmFriend.swift in Sources */,
 				E9E38D67287F0075006D8314 /* VKFriend.swift in Sources */,
 				E975C48E287B4406000C55F6 /* Networker.swift in Sources */,
 				E9186E1F287C4D6700B81856 /* WKWebViewController.swift in Sources */,
+				E91E56D928A176480085D7EC /* Gate.swift in Sources */,
 				E99361D6289AFF89001C671D /* FriendTableViewCell.swift in Sources */,
 				E9E38D69287F02D4006D8314 /* VKResponse.swift in Sources */,
+				E91E56D128A1749E0085D7EC /* RealmCity.swift in Sources */,
 				E9E38D71287F3B79006D8314 /* VKGroup.swift in Sources */,
+				E91E56DB28A17B5B0085D7EC /* Friend.swift in Sources */,
 				E9E38D6F287F3721006D8314 /* VKPhotoSize.swift in Sources */,
 				E967BDE4284C9F7100B6C2B2 /* Resources.swift in Sources */,
 				E9C4F315289C5D2A00857AA4 /* GroupViewController.swift in Sources */,
+				E91E56D728A1758F0085D7EC /* RealmGroup.swift in Sources */,
 				E96B91662845677200960540 /* MyFiendsViewController.swift in Sources */,
+				E91E56DF28A1B5AD0085D7EC /* Group.swift in Sources */,
 				E9E6DA662875BA44005E3E8B /* Session.swift in Sources */,
 				E96F4CF42837DC89008396D2 /* AppDelegate.swift in Sources */,
 				E99361DD289B1AFF001C671D /* FriendViewController.swift in Sources */,

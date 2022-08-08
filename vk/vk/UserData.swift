@@ -12,7 +12,7 @@ class UserData {
     
     static let instance = UserData()
     
-    var friends: [VKFriend] = [VKFriend]()
+    var friends: [Friend] = [Friend]()
     var photos: [VKPhoto] = [VKPhoto]()
-    var groups: [VKGroup] = [VKGroup]()
+    var groups: [Group] = [Group]()
 }

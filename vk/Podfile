@@ -6,6 +6,7 @@ target 'vk' do
   use_frameworks!
 
   pod 'Alamofire'
+  pod 'RealmSwift', '~>10'
   
   # Pods for vk
 
