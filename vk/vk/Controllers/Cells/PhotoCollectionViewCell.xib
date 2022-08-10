@@ -22,27 +22,18 @@
                             <constraint firstAttribute="width" secondItem="4d8-yj-Lgo" secondAttribute="height" multiplier="1:1" id="vWP-bm-AJv"/>
                         </constraints>
                     </imageView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3z1-KX-3ks" customClass="LikeView" customModule="vk" customModuleProvider="target">
-                        <rect key="frame" x="50" y="264" width="267" height="53"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="3z1-KX-3ks" firstAttribute="bottom" secondItem="4d8-yj-Lgo" secondAttribute="bottom" id="E4W-32-iKv"/>
                 <constraint firstAttribute="bottom" secondItem="4d8-yj-Lgo" secondAttribute="bottom" id="EkN-rY-J5B"/>
-                <constraint firstItem="3z1-KX-3ks" firstAttribute="trailing" secondItem="4d8-yj-Lgo" secondAttribute="trailing" id="Qs6-Cw-NT9"/>
                 <constraint firstItem="4d8-yj-Lgo" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="WCs-rb-OJy"/>
-                <constraint firstItem="3z1-KX-3ks" firstAttribute="top" secondItem="4d8-yj-Lgo" secondAttribute="bottom" constant="-53" id="aUw-iV-VDe"/>
                 <constraint firstAttribute="trailing" secondItem="4d8-yj-Lgo" secondAttribute="trailing" id="eIT-KP-BUB"/>
-                <constraint firstItem="3z1-KX-3ks" firstAttribute="leading" secondItem="4d8-yj-Lgo" secondAttribute="trailing" constant="-267" id="ttl-Ij-wR4"/>
                 <constraint firstItem="4d8-yj-Lgo" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="xcH-Hi-HZz"/>
             </constraints>
             <size key="customSize" width="317" height="317"/>
             <connections>
                 <outlet property="imageView" destination="4d8-yj-Lgo" id="fWr-hb-DHb"/>
-                <outlet property="likeView" destination="3z1-KX-3ks" id="3yr-Ow-G63"/>
             </connections>
             <point key="canvasLocation" x="329.71014492753625" y="242.74553571428569"/>
         </collectionViewCell>
