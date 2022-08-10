@@ -79,11 +79,7 @@ extension FriendViewController: UICollectionViewDataSource {
         let dataToDownload = photoData.sizes.first { $0.type == "x" }
         
         guard let imageUrl = dataToDownload?.url else { return cell }
-        guard let url = URL(string: imageUrl) else { return cell }
-        guard let imageData = try? Data(contentsOf: url) else { return cell }
-        guard let image = UIImage(data: imageData) else { return cell }
-        
-        cell.configure(image: image)
+        cell.configure(image: ImageFromVK(url: imageUrl).getImage())
         return cell
     }
 }
