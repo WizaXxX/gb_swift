@@ -16,14 +16,15 @@ class Gate {
     private init() {}
     static let shared = Gate()
     
-    var friendsLastUpdateTime: Date?
-    var groupsLasUpdateTime: Date?
+    let friendsKeyName = "friendsLastDateUpdate"
+    let groupsKeyName = "groupsLastDateUpdate"
     
-    private func needUpdate(_ checkDate: Date?) -> Bool {
-        guard let lastUpdateDate = checkDate else { return true }
-        let currentDate = Date()
+    private func needUpdate(_ lastDateUpdate: Int) -> Bool {
         
-        return ((currentDate - lastUpdateDate) / 60) > 60 // Обновляем если прошло больше 60 сек
+        if lastDateUpdate == 0 { return true }
+        let dateNow = Date()
+        
+        return (Int(dateNow.timeIntervalSince1970) - lastDateUpdate) >= 5 // Обновляем не чаще чем в 5 сек
         
     }
 }
@@ -31,19 +32,24 @@ class Gate {
 extension Gate {
 
     func getFriends() async {
-
-        if needUpdate(friendsLastUpdateTime) {
+        
+        let lastDateUpdate = UserDefaults.standard.integer(forKey: friendsKeyName)
+        if needUpdate(lastDateUpdate) {
             guard let friends = try? await Networker.shared.getFriendAsync() else { return }
             writeFriendsToRealm(friends: friends)
+            UserDefaults.standard.set(Int(Date().timeIntervalSince1970), forKey: friendsKeyName)
         }
-        try? getFriendFromRealm()
     }
     
     private func writeFriendsToRealm(friends: [VKFriend]) {
         guard let realm = try? Realm() else { return }
+        
+        let existIds = friends.map({ $0.id })
+        let friendsToDelete = realm.objects(RealmFriend.self).filter("NOT id IN %@", existIds)
+        
         try? realm.write({
+            realm.delete(friendsToDelete)
             friends.forEach { friend in
-                
                 let realmfriend = RealmFriend()
                 realmfriend.id = friend.id
                 realmfriend.firstName = friend.firstName
@@ -70,40 +76,27 @@ extension Gate {
             }
         })
     }
-    
-    private func getFriendFromRealm() throws {
-        try? Realm().objects(RealmFriend.self).forEach { realmFriend in
-            UserData.instance.friends.append(Friend(
-                id: realmFriend.id,
-                firstName: realmFriend.firstName,
-                lastName: realmFriend.lastName,
-                nickname: realmFriend.nickname,
-                sSizePhoto: ImageFromVK(url: realmFriend.sSizePhoto),
-                mSizePhoto: ImageFromVK(url: realmFriend.mSizePhoto),
-                sex: realmFriend.sex,
-                city: City(
-                    id: realmFriend.city?.id ?? 0,
-                    title: realmFriend.city?.title ?? ""),
-                lastSeen: Date(timeIntervalSince1970: TimeInterval(realmFriend.lastSeen ?? 0))))
-        }
-    }
 }
 
 extension Gate {
     func getGroups() async {
-        if needUpdate(groupsLasUpdateTime) {
+        let lastDateUpdate = UserDefaults.standard.integer(forKey: groupsKeyName)
+        if needUpdate(lastDateUpdate) {
             guard let groups = try? await Networker.shared.getGroupsAsync(ownerId: Session.instance.userId) else { return }
             writeGroupsToRealm(groups: groups)
+            UserDefaults.standard.set(Int(Date().timeIntervalSince1970), forKey: groupsKeyName)
         }
-        
-        try? getGroupFromRealm()
     }
     
     private func writeGroupsToRealm(groups: [VKGroup]) {
         guard let realm = try? Realm() else { return }
+        
+        let existIds = groups.map({ $0.id })
+        let friendsToDelete = realm.objects(RealmGroup.self).filter("NOT id IN %@", existIds)
+        
         try? realm.write({
+            realm.delete(friendsToDelete)
             groups.forEach { group in
-                
                 let realmGroup = RealmGroup()
                 realmGroup.id = group.id
                 realmGroup.name = group.name
@@ -119,18 +112,6 @@ extension Gate {
                 realm.add(realmGroup, update: .all)
             }
         })
-    }
-    
-    private func getGroupFromRealm() throws {
-        try? Realm().objects(RealmGroup.self).forEach { realmGroup in
-            UserData.instance.groups.append(Group(
-                id: realmGroup.id,
-                name: realmGroup.name,
-                mSizePhoto: ImageFromVK(url: realmGroup.mSizePhoto),
-                membersCount: realmGroup.membersCount,
-                description: realmGroup.desc,
-                status: realmGroup.status))
-        }
     }
 }
 
