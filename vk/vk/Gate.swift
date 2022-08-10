@@ -78,8 +78,8 @@ extension Gate {
                 firstName: realmFriend.firstName,
                 lastName: realmFriend.lastName,
                 nickname: realmFriend.nickname,
-                sSizePhoto: realmFriend.sSizePhoto,
-                mSizePhoto: realmFriend.mSizePhoto,
+                sSizePhoto: ImageFromVK(url: realmFriend.sSizePhoto),
+                mSizePhoto: ImageFromVK(url: realmFriend.mSizePhoto),
                 sex: realmFriend.sex,
                 city: City(
                     id: realmFriend.city?.id ?? 0,
@@ -126,7 +126,7 @@ extension Gate {
             UserData.instance.groups.append(Group(
                 id: realmGroup.id,
                 name: realmGroup.name,
-                mSizePhoto: realmGroup.mSizePhoto,
+                mSizePhoto: ImageFromVK(url: realmGroup.mSizePhoto),
                 membersCount: realmGroup.membersCount,
                 description: realmGroup.desc,
                 status: realmGroup.status))

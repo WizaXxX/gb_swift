@@ -8,6 +8,7 @@
 import UIKit
 import WebKit
 import SwiftKeychainWrapper
+import CryptoKit
 
 class WKWebViewController: UIViewController {
 
@@ -19,7 +20,7 @@ class WKWebViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         webView.navigationDelegate = self
         
         if needReloadToken() {

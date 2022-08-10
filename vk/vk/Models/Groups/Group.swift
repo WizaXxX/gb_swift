@@ -10,7 +10,7 @@ import Foundation
 struct Group {
     var id: Int
     var name: String
-    var mSizePhoto: String
+    var mSizePhoto: ImageFromVK
     var membersCount: Int
     var description: String
     var status: String

@@ -30,6 +30,7 @@
 		E99361D9289B0074001C671D /* VKCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99361D8289B0074001C671D /* VKCity.swift */; };
 		E99361DB289B19BA001C671D /* VKLastSeen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99361DA289B19BA001C671D /* VKLastSeen.swift */; };
 		E99361DD289B1AFF001C671D /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99361DC289B1AFF001C671D /* FriendViewController.swift */; };
+		E9A813AF28A40C95007DCAB4 /* ImageFromVK.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A813AE28A40C95007DCAB4 /* ImageFromVK.swift */; };
 		E9C4F312289C560300857AA4 /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C4F310289C560300857AA4 /* GroupTableViewCell.swift */; };
 		E9C4F313289C560300857AA4 /* GroupTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9C4F311289C560300857AA4 /* GroupTableViewCell.xib */; };
 		E9C4F315289C5D2A00857AA4 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C4F314289C5D2A00857AA4 /* GroupViewController.swift */; };
@@ -72,6 +73,7 @@
 		E99361D8289B0074001C671D /* VKCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKCity.swift; sourceTree = "<group>"; };
 		E99361DA289B19BA001C671D /* VKLastSeen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLastSeen.swift; sourceTree = "<group>"; };
 		E99361DC289B1AFF001C671D /* FriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
+		E9A813AE28A40C95007DCAB4 /* ImageFromVK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFromVK.swift; sourceTree = "<group>"; };
 		E9C4F310289C560300857AA4 /* GroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
 		E9C4F311289C560300857AA4 /* GroupTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupTableViewCell.xib; sourceTree = "<group>"; };
 		E9C4F314289C5D2A00857AA4 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				E99361DA289B19BA001C671D /* VKLastSeen.swift */,
 				E9E38D68287F02D4006D8314 /* VKResponse.swift */,
 				E9E38D6C287F351A006D8314 /* VKPhoto.swift */,
+				E9A813AE28A40C95007DCAB4 /* ImageFromVK.swift */,
 				E9E38D6E287F3721006D8314 /* VKPhotoSize.swift */,
 			);
 			path = Models;
@@ -415,6 +418,7 @@
 				E91E56DB28A17B5B0085D7EC /* Friend.swift in Sources */,
 				E9E38D6F287F3721006D8314 /* VKPhotoSize.swift in Sources */,
 				E967BDE4284C9F7100B6C2B2 /* Resources.swift in Sources */,
+				E9A813AF28A40C95007DCAB4 /* ImageFromVK.swift in Sources */,
 				E9C4F315289C5D2A00857AA4 /* GroupViewController.swift in Sources */,
 				E91E56D728A1758F0085D7EC /* RealmGroup.swift in Sources */,
 				E96B91662845677200960540 /* MyFiendsViewController.swift in Sources */,
