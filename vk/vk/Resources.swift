@@ -30,4 +30,8 @@ public struct Resouces {
         static let clientId = "51393667"
         static let version = "5.131"
     }
+    
+    struct Firebase {
+        static let userCollectionName = "User"
+    }
 }

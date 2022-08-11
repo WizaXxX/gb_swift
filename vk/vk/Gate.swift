@@ -7,6 +7,7 @@
 
 import Foundation
 import RealmSwift
+import FirebaseFirestore
 
 enum ErrorType: Error {
     case CantCreateRealm
@@ -18,6 +19,8 @@ class Gate {
     
     let friendsKeyName = "friendsLastDateUpdate"
     let groupsKeyName = "groupsLastDateUpdate"
+    
+    let db = Firestore.firestore()
     
     private func needUpdate(_ lastDateUpdate: Int) -> Bool {
         
@@ -94,6 +97,8 @@ extension Gate {
         let existIds = groups.map({ $0.id })
         let friendsToDelete = realm.objects(RealmGroup.self).filter("NOT id IN %@", existIds)
         
+        var groupsToFirebase = [String]()
+        
         try? realm.write({
             realm.delete(friendsToDelete)
             groups.forEach { group in
@@ -110,8 +115,14 @@ extension Gate {
                 realmGroup.status = group.status
                 
                 realm.add(realmGroup, update: .all)
+                groupsToFirebase.append(String(group.id))
             }
         })
+        
+        db
+            .collection(Resouces.Firebase.userCollectionName)
+            .document(String(Session.instance.userId))
+            .setData(["id": Session.instance.userId, "groups": groupsToFirebase], merge: true)
     }
 }
 

@@ -31,6 +31,7 @@
 		E99361DB289B19BA001C671D /* VKLastSeen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99361DA289B19BA001C671D /* VKLastSeen.swift */; };
 		E99361DD289B1AFF001C671D /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99361DC289B1AFF001C671D /* FriendViewController.swift */; };
 		E9A813AF28A40C95007DCAB4 /* ImageFromVK.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A813AE28A40C95007DCAB4 /* ImageFromVK.swift */; };
+		E9C2AFAB28A58C3B00BB5B28 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E9C2AFAA28A58C3B00BB5B28 /* GoogleService-Info.plist */; };
 		E9C4F312289C560300857AA4 /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C4F310289C560300857AA4 /* GroupTableViewCell.swift */; };
 		E9C4F313289C560300857AA4 /* GroupTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9C4F311289C560300857AA4 /* GroupTableViewCell.xib */; };
 		E9C4F315289C5D2A00857AA4 /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C4F314289C5D2A00857AA4 /* GroupViewController.swift */; };
@@ -73,6 +74,7 @@
 		E99361DA289B19BA001C671D /* VKLastSeen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLastSeen.swift; sourceTree = "<group>"; };
 		E99361DC289B1AFF001C671D /* FriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
 		E9A813AE28A40C95007DCAB4 /* ImageFromVK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFromVK.swift; sourceTree = "<group>"; };
+		E9C2AFAA28A58C3B00BB5B28 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E9C4F310289C560300857AA4 /* GroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
 		E9C4F311289C560300857AA4 /* GroupTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupTableViewCell.xib; sourceTree = "<group>"; };
 		E9C4F314289C5D2A00857AA4 /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 		E96F4CF22837DC89008396D2 /* vk */ = {
 			isa = PBXGroup;
 			children = (
+				E9C2AFAA28A58C3B00BB5B28 /* GoogleService-Info.plist */,
 				E967BDE3284C9F7100B6C2B2 /* Resources.swift */,
 				E9E6DA652875BA44005E3E8B /* Session.swift */,
 				E975C48D287B4406000C55F6 /* Networker.swift */,
@@ -338,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E96F4D002837DC8D008396D2 /* LaunchScreen.storyboard in Resources */,
+				E9C2AFAB28A58C3B00BB5B28 /* GoogleService-Info.plist in Resources */,
 				E9F3AF6A284DEE8A003710B3 /* PhotoCollectionViewCell.xib in Resources */,
 				E96F4CFD2837DC8D008396D2 /* Assets.xcassets in Resources */,
 				E99361D7289AFF89001C671D /* FriendTableViewCell.xib in Resources */,
