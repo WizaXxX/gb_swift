@@ -42,11 +42,9 @@ class AvatarView: UIView {
         self.addSubview(xibView)
     }
     
-    func loadAndSetImage(from urlImage: String, cornerRadius: Int, shadowRadius: Int) {
-        guard let url = URL(string: urlImage) else { return }
-        guard let imageData = try? Data(contentsOf: url) else { return }
-        
-        imageView.image = UIImage(data: imageData)
+    func loadAndSetImage(from image: ImageFromVK, cornerRadius: Int, shadowRadius: Int) {
+
+        imageView.image = image.getImage()
         clipsToBounds = false
         layer.cornerRadius = CGFloat(cornerRadius)
         layer.shadowColor = UIColor.black.cgColor

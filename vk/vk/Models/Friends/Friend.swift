@@ -12,8 +12,8 @@ struct Friend {
     var firstName: String
     var lastName: String
     var nickname: String?
-    var sSizePhoto: String
-    var mSizePhoto: String
+    var sSizePhoto: ImageFromVK
+    var mSizePhoto: ImageFromVK
     var sex: Int
     var city: City
     var lastSeen: Date?

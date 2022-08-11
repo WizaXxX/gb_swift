@@ -7,21 +7,33 @@
 
 import UIKit
 import WebKit
+import SwiftKeychainWrapper
+import CryptoKit
 
 class WKWebViewController: UIViewController {
 
     @IBOutlet weak var webView: WKWebView!
     
+    private let tokenKeyName = "token"
+    private let userIdKeyName = "userId"
+    private let tokenExpiresInDateKeyName = "tokenExpiresInDate"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         webView.navigationDelegate = self
-        loadLoginPage()
+        
+        if needReloadToken() {
+            loadLoginPage()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        performSegue(withIdentifier: Resouces.Segue.fromVKLoginToMainBarController, sender: nil)
+        
+        if Session.instance.token != "" {
+            performSegue(withIdentifier: Resouces.Segue.fromVKLoginToMainBarController, sender: nil)
+        }
     }
     
     func loadLoginPage() {
@@ -41,6 +53,41 @@ class WKWebViewController: UIViewController {
         let request = URLRequest(url: url)
 
         webView.load(request)
+    }
+    
+    private func needReloadToken() -> Bool {
+        
+        guard let token = KeychainWrapper.standard.string(forKey: tokenKeyName) else { return true }
+        
+        let userId = UserDefaults.standard.integer(forKey: userIdKeyName)
+        if userId == 0 {
+            return true
+        }
+        
+        let tokenExpiresDate = UserDefaults.standard.integer(forKey: tokenExpiresInDateKeyName)
+        if tokenExpiresDate == 0 {
+            return true
+        }
+        
+        let dateNow = Date()
+        if tokenExpiresDate <= Int(dateNow.timeIntervalSince1970) {
+            return true
+        }
+        
+        Session.instance.userId = userId
+        Session.instance.token = token
+        
+        return false
+    }
+    
+    private func saveAuthData(expiresInSecond: Int) {
+        KeychainWrapper.standard.set(Session.instance.token, forKey: tokenKeyName)
+        UserDefaults.standard.set(Session.instance.userId, forKey: userIdKeyName)
+        
+        let dateNow = Date()
+        let expiresIn = Int(dateNow.timeIntervalSince1970) + expiresInSecond
+        
+        UserDefaults.standard.set(expiresIn, forKey: tokenExpiresInDateKeyName)
     }
 }
 
@@ -83,6 +130,12 @@ extension WKWebViewController: WKNavigationDelegate {
         if let userId = params["user_id"] {
             if let userIdInt = Int(userId) {
                 Session.instance.userId = userIdInt
+            }
+        }
+        
+        if let expiresInSecond = params["expires_in"] {
+            if let expiresInSecondInt = Int(expiresInSecond) {
+                saveAuthData(expiresInSecond: expiresInSecondInt)
             }
         }
         

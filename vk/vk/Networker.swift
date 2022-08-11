@@ -86,7 +86,6 @@ class Networker {
 
             sendGetRequest(url: url, type: VKArrayResult<VKFriend>.self) { response in
 //                guard let friends = response?.items else { return }
-//                UserData.instance.friends = friends
 //                completion()
             }
         }
@@ -122,7 +121,6 @@ class Networker {
         guard let url = createUrl(method: .getGroups, methodParams: urlParams) else { return }
         sendGetRequest(url: url, type: VKArrayResult<VKGroup>.self) { response in
 //            guard let groups = response?.items else { return }
-//            UserData.instance.groups = groups
 //            completion()
         }
     }
