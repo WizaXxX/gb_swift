@@ -9,6 +9,7 @@ import UIKit
 import WebKit
 import SwiftKeychainWrapper
 import CryptoKit
+import FirebaseFirestore
 
 class WKWebViewController: UIViewController {
 
@@ -17,6 +18,8 @@ class WKWebViewController: UIViewController {
     private let tokenKeyName = "token"
     private let userIdKeyName = "userId"
     private let tokenExpiresInDateKeyName = "tokenExpiresInDate"
+    
+    let db = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,8 +77,7 @@ class WKWebViewController: UIViewController {
             return true
         }
         
-        Session.instance.userId = userId
-        Session.instance.token = token
+        setSessionData(token: token, userId: userId)
         
         return false
     }
@@ -89,6 +91,17 @@ class WKWebViewController: UIViewController {
         
         UserDefaults.standard.set(expiresIn, forKey: tokenExpiresInDateKeyName)
     }
+    
+    private func setSessionData(token: String, userId: Int) {
+        Session.instance.token = token
+        Session.instance.userId = userId
+                
+        db
+            .collection(Resouces.Firebase.userCollectionName)
+            .document(String(userId))
+            .setData(["id": userId], merge: true)
+    }
+    
 }
 
 extension WKWebViewController: WKNavigationDelegate {
@@ -125,13 +138,15 @@ extension WKWebViewController: WKNavigationDelegate {
             loadLoginPage()
             return
         }
-        Session.instance.token = token
         
+        var id = 0
         if let userId = params["user_id"] {
             if let userIdInt = Int(userId) {
-                Session.instance.userId = userIdInt
+                id = userIdInt
             }
         }
+        
+        setSessionData(token: token, userId: id)
         
         if let expiresInSecond = params["expires_in"] {
             if let expiresInSecondInt = Int(expiresInSecond) {

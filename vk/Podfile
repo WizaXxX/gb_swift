@@ -7,6 +7,8 @@ target 'vk' do
 
   pod 'RealmSwift', '~>10'
   pod 'SwiftKeychainWrapper'
+  pod 'FirebaseAuth'
+  pod 'FirebaseFirestore'
   
   # Pods for vk
 
